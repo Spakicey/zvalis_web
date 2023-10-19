@@ -7,6 +7,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Dependencies
+frontend/static/js/node_modules
+
+# Misc
+.DS_Store
+
 # C extensions
 *.so
 
