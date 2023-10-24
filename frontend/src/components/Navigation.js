@@ -34,13 +34,13 @@ const Navigation = () => {
         </CDBSidebarHeader>
         <CDBSidebarContent>
           <CDBSidebarMenu>
-            <NavLink exact to='/' activeClassName='activeClicked'>
+            <NavLink exact='true' to='/' activeclassname='activeClicked'>
               <CDBSidebarMenuItem icon='home'>Home</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to='/project' activeClassName='activeClicked'>
+            <NavLink exact='true' to='/projects' activeclassname='activeClicked'>
               <CDBSidebarMenuItem icon='list'>Projects</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to='/manage' activeClassName='activeClicked'>
+            <NavLink exact='true' to='/manage' activeclassname='activeClicked'>
               <CDBSidebarMenuItem icon='user'>Manage</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>

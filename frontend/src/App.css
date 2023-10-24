@@ -14,3 +14,19 @@ body, html {
   float: left;
   overflow: 'scroll initial';
 }
+
+.side-container {
+  padding-top: 30px;
+}
+
+.side-row {
+  padding: 30px;
+}
+
+.react-bootstrap-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  z-index: 1021;
+  color: white;
+}
