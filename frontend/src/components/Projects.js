@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
 import { getProjects } from '../services/ProjectService';
 import "../App.css";
 
+let img_partial = "http://127.0.0.1:8000";
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
@@ -19,32 +21,23 @@ const Projects = () => {
 
   return(
     <div className="container-fluid side-container">
-    <div className="row side-row" >
-     <p id="before-table"></p>
-         <Table striped bordered hover className="react-bootstrap-table"
-         id="dataTable">
-         <thead>
-             <tr>
-             <th>ID</th>
-             <th>Title</th>
-             <th>Description</th>
-             <th>Technology</th>
-             <th>Image</th>
-             </tr>
-         </thead>
-         <tbody>
-             {projects.map((stu) =>
-             <tr key={stu.id}>
-                 <td>{stu.id}</td>
-                 <td>{stu.title}</td>
-                 <td>{stu.description}</td>
-                 <td>{stu.technology}</td>
-                 <td>{stu.image}</td>
-             </tr>)}
-         </tbody>
-     </Table>
-     </div>
-   </div>
+      <div className="row side-row">
+      {projects.map((stu) =>
+        <div class="col-md-4">
+          <div class="card mb-2">
+          <Link to="">
+            <img class="card-img-top" src={img_partial.concat(stu.image)}></img>
+          </Link>
+            <div class="card-body">
+              <h5 class="card-title">{stu.title}</h5>
+              <p class="card-text">{stu.description}</p>
+              <a href=""
+                class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>)}
+      </div>
+    </div>
    );
  };
 

@@ -27,8 +27,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Collect and serve images for projects app
-MEDIA_ROOT = 'uploads/'
-MEDIA_URL = 'media/'
+MEDIA_ROOT = '../frontend/src/static/uploads'
+MEDIA_URL = 'uploads/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')

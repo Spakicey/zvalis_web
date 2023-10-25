@@ -9,6 +9,7 @@ __pycache__/
 
 # Frontend dependencies
 frontend/node_modules
+frontend/src/static/uploads
 /.pnp
 .pnp.js
 

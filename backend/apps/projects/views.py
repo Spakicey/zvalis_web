@@ -14,7 +14,7 @@ class ProjectView(APIView):
             serializer.save()
             return JsonResponse("Project Added Successfully",
                                 safe=False)
-        return JsonResponse("Failed tp Add Project", safe=False)
+        return JsonResponse("Failed to Add Project", safe=False)
 
     def get_project(self, pk):
         try:
