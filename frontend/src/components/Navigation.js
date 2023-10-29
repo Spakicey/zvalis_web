@@ -19,7 +19,7 @@ const Navigation = () => {
       <Navbar.Brand className="app-logo" href="/">
         <img
           src={logo}
-          width="40"
+          width="50"
           height="50"
           className="d-inline-block align-center"
           alt="React Bootstrap logo"
@@ -40,8 +40,11 @@ const Navigation = () => {
             <NavLink exact='true' to='/projects' activeclassname='activeClicked'>
               <CDBSidebarMenuItem icon='list'>Projects</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact='true' to='/manage' activeclassname='activeClicked'>
-              <CDBSidebarMenuItem icon='user'>Manage</CDBSidebarMenuItem>
+            <NavLink exact='true' to='/' activeclassname='activeClicked'>
+              <CDBSidebarMenuItem icon='user'>About Me</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact='true' to='/' activeclassname='activeClicked'>
+              <CDBSidebarMenuItem icon='phone'>Contact</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
