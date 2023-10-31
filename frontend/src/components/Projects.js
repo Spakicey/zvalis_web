@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { getProjects } from '../services/ProjectService';
-import "../App.scss";
+import "../scss/App.scss";
 
 let img_partial = "http://127.0.0.1:8000";
 const Projects = () => {
