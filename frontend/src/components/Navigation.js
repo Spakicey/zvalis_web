@@ -1,56 +1,47 @@
-import React from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
-import logo from '../static/logo.png';
-import "../App.css";
-import {NavLink} from 'react-router-dom';
-import {
-  CDBSidebar,
-  CDBSidebarContent,
-  CDBSidebarFooter,
-  CDBSidebarHeader,
-  CDBSidebarMenu,
-  CDBSidebarMenuItem,
-} from 'cdbreact';
+import "../App.scss";
+
 
 const Navigation = () => {
   return (
-    <div>
-    <Navbar bg="dark" variant="dark" expand="lg" id="my-nav">
-      <Navbar.Brand className="app-logo" href="/">
-        <img
-          src={logo}
-          width="50"
-          height="50"
-          className="d-inline-block align-center"
-          alt="React Bootstrap logo"
-        />{' '}
-        Valis Coding Projects
-      </Navbar.Brand>
-    </Navbar>
-    <div className='sidebar'>
-      <CDBSidebar textColor='#333' backgroundColor='#f0f0f0'>
-        <CDBSidebarHeader prefix={<i className='fa fa-bars' />}>
-          Navigation
-        </CDBSidebarHeader>
-        <CDBSidebarContent>
-          <CDBSidebarMenu>
-            <NavLink exact='true' to='/' activeclassname='activeClicked'>
-              <CDBSidebarMenuItem icon='home'>Home</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact='true' to='/projects' activeclassname='activeClicked'>
-              <CDBSidebarMenuItem icon='list'>Projects</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact='true' to='/' activeclassname='activeClicked'>
-              <CDBSidebarMenuItem icon='user'>About Me</CDBSidebarMenuItem>
-            </NavLink>
-            <NavLink exact='true' to='/' activeclassname='activeClicked'>
-              <CDBSidebarMenuItem icon='phone'>Contact</CDBSidebarMenuItem>
-            </NavLink>
-          </CDBSidebarMenu>
-        </CDBSidebarContent>
-      </CDBSidebar>
-    </div>
-    </div>
+    <nav className="home__nav">
+      <div className="home__nav__left">
+        <div className="nav__name" nav-anim>
+          <span>
+            Zacheriah <br />
+            Valis
+          </span>
+        </div>
+
+        <div className="nav__portfolio hide-mobile" nav-anim>
+          <span>
+            Software Engineer <br />
+            Portfolio / 2023
+          </span>
+        </div>
+      </div>
+
+      <div className="home__nav__right">
+        <div className="nav__portfolio hide-desktop" nav-anim>
+          Software Engineer <br />
+          Portfolio / 2023
+        </div>
+      </div>
+
+      <div className="nav__availability" nav-anim>
+        Available for freelance <br />
+        Work from January 2024
+      </div>
+
+      <button className="nav__button c-button contact-scroll" nav-anim>
+        <span className="c-link">
+          <span className="c-link__inner">
+            <span> contact </span>
+            <span className="c-link__animated"> contact </span>
+          </span>
+        </span>
+      </button>
+    </nav>
+
   );
 };
 
