@@ -3,6 +3,21 @@ const Home = () => {
 
   return (
     <main className="home">
+      < section className="home__header">
+        <a
+          className="home__header__link"
+          href=""
+          rel="noopener noreferrer">
+          Info
+        </a>
+        <a
+          className="home__header__link"
+          href=""
+          rel="noopener noreferrer">
+          Work
+        </a>
+      </section>
+
       <section className="home__hero">
         <div className="hero__title">
           <h1 className="mobile">
@@ -26,10 +41,7 @@ const Home = () => {
               </span>
             </div>
           </h1>
-
-
         </div>
-
       </section>
 
     </main>

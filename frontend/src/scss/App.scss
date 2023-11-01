@@ -15,7 +15,7 @@
   visibility: visible;
   &__nav {
     @extend %padding-home;
-    margin-bottom: 6.4rem;
+    //margin-bottom: 6.4rem;
     display: flex;
     justify-content: space-between;
     @extend %description-12;
@@ -91,9 +91,22 @@
     }
   }
 
+  &__header {
+    @extend %padding-home;
+    //margin-bottom: 6.4rem;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.4;
+
+    &__link {
+      @extend %title-160;
+    }
+  }
+
   &__hero {
     margin-bottom: 9.6rem;
     @extend %padding-home;
+    visibility: visible;
 
     .hero {
       &__title {
@@ -680,10 +693,11 @@
 
       .time {
         position: relative;
+        //margin-left: 1.5rem;
 
         &::before {
           content: "";
-          position: absolute;
+          position: relative;
           background: $col-black;
           height: 100%;
           left: 0;
