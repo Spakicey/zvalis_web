@@ -21,23 +21,23 @@ const Home = () => {
       <section className="home__hero">
         <div className="hero__title">
           <h1 className="mobile">
-            ZACK VALIS<br />
-            FREELANCE
+            Zack Valis<br />
+            Freelance
           </h1>
           <h1 className="hero__title__top desktop">
             <div className="hero__title__top">
               <span className="hero__title__left">
                 <span className="hero__hover">Z</span>
-                <span className="hero__hover">A</span>
-                <span className="hero__hover">C</span>
-                <span className="hero__hover">K</span>
+                <span className="hero__hover">a</span>
+                <span className="hero__hover">c</span>
+                <span className="hero__hover">k</span>
               </span>
               <span className="hero__title__right">
                 <span className="hero__hover">V</span>
-                <span className="hero__hover">A</span>
-                <span className="hero__hover">L</span>
-                <span className="hero__hover">I</span>
-                <span className="hero__hover">S</span>
+                <span className="hero__hover">a</span>
+                <span className="hero__hover">l</span>
+                <span className="hero__hover">i</span>
+                <span className="hero__hover">s</span>
               </span>
             </div>
           </h1>

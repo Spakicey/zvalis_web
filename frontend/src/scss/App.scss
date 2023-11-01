@@ -99,7 +99,7 @@
     line-height: 1.4;
 
     &__link {
-      @extend %title-160;
+      @extend %title-100;
     }
   }
 
@@ -555,7 +555,7 @@
 
         .inner-span {
           text-transform: uppercase;
-          @extend %title-160;
+          @extend %title-100;
           color: $col-boulder;
           position: relative;
           overflow: hidden;
@@ -678,7 +678,7 @@
 
     &__left {
       display: flex;
-      font-family: $font-sauce;
+      font-family: $font-bookish;
       @include media(">tablet") {
         left: 2.4rem;
         position: absolute;

@@ -1,7 +1,7 @@
 %title-328 {
   font-size: 32.8rem;
-  // letter-spacing: -0.05em;
-  font-family: $font-bebas;
+  letter-spacing: -0.05em;
+  font-family: $font-bookish;
   word-break: break-word;
 
   @include media("<=phone") {
@@ -9,9 +9,9 @@
   }
 }
 
-%title-160 {
-  font-size: 16rem;
-  font-family: $font-bebas;
+%title-100 {
+  font-size: 10rem;
+  font-family: $font-bookish;
   letter-spacing: -0.025em;
 
   @include media("<=phone") {

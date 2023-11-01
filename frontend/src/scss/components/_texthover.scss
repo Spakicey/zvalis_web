@@ -75,6 +75,7 @@
         background-size: 200% 100%;
         animation: textGradientAnim 5s ease infinite alternate;
         overflow: hidden;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         transition: background 0.3s;
@@ -82,6 +83,7 @@
         .slide-up {
           &::before {
             background: $col-orange;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
@@ -151,7 +153,7 @@
   }
 
   &__title {
-    @extend %title-160;
+    @extend %title-100;
     line-height: 1;
 
     @include media(">tablet") {
