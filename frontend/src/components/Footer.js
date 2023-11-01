@@ -43,8 +43,8 @@ const Footer = () => {
               >
                 <span className="c-link">
                   <span className="c-link__inner">
-                    <span>Twitter</span>
-                    <span className="c-link__animated">Twitter</span>
+                    <span>Spotify</span>
+                    <span className="c-link__animated">Spotify</span>
                   </span>
                 </span>
               </a>
@@ -56,8 +56,8 @@ const Footer = () => {
               >
                 <span className="c-link">
                   <span className="c-link__inner">
-                    <span>INSTAGRAM</span>
-                    <span className="c-link__animated">INSTAGRAM</span>
+                    <span>Instagram</span>
+                    <span className="c-link__animated">Instagram</span>
                   </span>
                 </span>
               </a>
@@ -74,8 +74,8 @@ const Footer = () => {
               >
                 <span className="c-link">
                   <span className="c-link__inner">
-                    <span>GITHUB</span>
-                    <span className="c-link__animated">GITHUB</span>
+                    <span>GitHub</span>
+                    <span className="c-link__animated">GitHub</span>
                   </span>
                 </span>
               </a>
@@ -87,8 +87,8 @@ const Footer = () => {
               >
                 <span className="c-link">
                   <span className="c-link__inner">
-                    <span>LINKEDIN</span>
-                    <span className="c-link__animated">LINKEDIN</span>
+                    <span>LinkedIn</span>
+                    <span className="c-link__animated">LinkedIn</span>
                   </span>
                 </span>
               </a>
@@ -104,7 +104,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             >
-              Oluwadare Oluwasey
+              Oluwadare Oluwaseyi
             </a><br />
           <a
             href="https://fayemi.design/"

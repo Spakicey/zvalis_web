@@ -6,8 +6,7 @@ const Header = () => {
         <div className="home__nav__left">
           <div className="nav__name">
             <span>
-              Zacheriah <br />
-              Valis
+              Zacheriah Valis
             </span>
           </div>
 
@@ -28,14 +27,13 @@ const Header = () => {
 
         <div className="nav__availability">
           Available for freelance <br />
-          Work from January 2024
+          work from January 2024
         </div>
-
         <button className="nav__button c-button contact-scroll">
           <span className="c-link">
             <span className="c-link__inner">
-              <span> contact </span>
-              <span className="c-link__animated"> contact </span>
+              <span> Contact </span>
+              <span className="c-link__animated"> Contact </span>
             </span>
           </span>
         </button>
