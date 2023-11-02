@@ -100,8 +100,63 @@
     line-height: 1.4;
     z-index: 2; // Set a higher z-index value for header and footer
 
-    &__link {
+    .link {
       @extend %title-100;
+      position: relative;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      .right {
+        &:hover:before {
+          transform-origin: bottom left;
+          transform: scaleX(1);
+        }
+        &:hover {
+          color: $col-gray; /* Set your desired hover color */
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: .35em;
+          left: .25em;
+          width: 90%;
+          height: 2px; /* Set the height of the underline */
+          background-color: $col-gray; /* Set the color of the underline */
+          transform-origin: bottom right;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+      }
+      &:hover:before {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+    }
+
+      .left {
+        &:hover:before {
+          transform-origin: bottom left;
+          transform: scaleX(1);
+        }
+        &:hover {
+          color: $col-gray; /* Set your desired hover color */
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: .35em;
+          left: 0;
+          width: 100%;
+          height: 2px; /* Set the height of the underline */
+          background-color: $col-gray; /* Set the color of the underline */
+          transform-origin: bottom right;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+        &:hover:before {
+          transform-origin: bottom left;
+          transform: scaleX(1);
+        }
+      }
     }
   }
 
