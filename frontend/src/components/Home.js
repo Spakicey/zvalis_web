@@ -1,8 +1,27 @@
+import React, { useLayoutEffect, useRef } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Scene } from './threejs/Scene';
+import Cube from './threejs/Cube';
 
 const Home = () => {
+  const heroGameRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const homeNavHeight = document.querySelector('.home__nav').offsetHeight;
+    const heroHeaderHeight = document.querySelector('.hero__header').offsetHeight;
+    const footerHeight = document.querySelector('#js_footer.home__footer').offsetHeight;
+    const heroGameElement = heroGameRef.current;
+
+    if (heroGameElement) {
+      const availableHeight = window.innerHeight - homeNavHeight - heroHeaderHeight - footerHeight;
+      heroGameElement.style.minHeight = `${availableHeight}px`;
+      console.log("avail height:" + availableHeight);
+    }
+  }, []);
+
   return (
-      <main className="home" data-scroll-container>
-        <section className="home__header">
+    <div className="home__hero">
+      <section className="hero__header">
           <a
             className="link"
             href=""
@@ -16,34 +35,14 @@ const Home = () => {
             <span className="right">Work</span>
           </a>
         </section>
-
-        <section className="home__hero">
-          <div className="hero__title">
-            <h1 className="mobile">
-              Zack Valis<br />
-              Freelance
-            </h1>
-            <h1 className="hero__title__top desktop">
-              <div className="hero__title__top">
-                <span className="hero__title__left">
-                  <span className="hero__hover">Z</span>
-                  <span className="hero__hover">a</span>
-                  <span className="hero__hover">c</span>
-                  <span className="hero__hover">k</span>
-                </span>
-                <span className="hero__title__right">
-                  <span className="hero__hover">V</span>
-                  <span className="hero__hover">a</span>
-                  <span className="hero__hover">l</span>
-                  <span className="hero__hover">i</span>
-                  <span className="hero__hover">s</span>
-                </span>
-              </div>
-            </h1>
-          </div>
+        <section className='hero__game' ref={heroGameRef}>
+          <Canvas>
+            {/*<Cube position={[-1.2, 0, 0]} />*/}
+            <Scene />
+          </Canvas>
         </section>
-      <script src="'../services/AnimationService'"></script>
-    </main>
+
+    </div>
   );
 };
 

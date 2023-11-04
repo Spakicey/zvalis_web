@@ -98,21 +98,13 @@ const Footer = () => {
       </div>
       <div className="home__footer__right">
         <p>
-          Design inspired by <br />
           <a
-            href="https://www.seyi.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-              Oluwadare Oluwaseyi
-            </a><br />
-          <a
-            href="https://fayemi.design/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-              Isaac Fayemi
-            </a>
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                Acknowledgements
+              </a>
         </p>
       </div>
     </footer>

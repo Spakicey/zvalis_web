@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Home from "./components/Home";
@@ -10,13 +10,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/projects" element={<Projects/>} />
-        <Route exact path='/details/:id' element={<Details/>} />
-      </Routes>
-      <Footer />
+      <main className="home">
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/projects" element={<Projects/>} />
+          <Route exact path='/details/:id' element={<Details/>} />
+        </Routes>
+        <Footer />
+      </main>
     </BrowserRouter>
   );
 }
