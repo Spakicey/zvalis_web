@@ -32,7 +32,7 @@ const Header = () => {
         Available for freelance <br />
         work from January 2024
       </div>
-      <button className="nav__button c-button contact-scroll">
+      <button className="nav__button c-button">
         <span className="c-link">
           <span className="c-link__inner">
             <span> Contact </span>

@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getProjects } from '../services/ProjectService';
 import "../scss/App.scss";
 
-let img_partial = "http://127.0.0.1:8000";
 const Projects = () => {
+  let img_partial = "http://127.0.0.1:8000";
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
 
@@ -31,6 +31,7 @@ const Projects = () => {
             <div className="card-body">
               <h5 className="card-title">{stu.title}</h5>
               <p className="card-text">{stu.description}</p>
+              <p>{img_partial.concat(stu.image)}</p>
               <Button variant="primary" onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }}>Read More</Button>{' '}
             </div>
           </div>
