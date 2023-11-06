@@ -1,10 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Canvas } from '@react-three/fiber';
-import { Scene } from './threejs/Scene';
-//import Cube from './threejs/Cube';
 
-const Home = () => {
+const Info = () => {
   const heroGameRef = useRef(null);
   const navigate = useNavigate();
   const [animationClass, setAnimationClass] = useState("");
@@ -12,7 +9,7 @@ const Home = () => {
   const handleLinkClick = (direction) => {
     setAnimationClass(`slide-out ${direction}`);
     setTimeout(() => {
-      navigate(direction === "right" ? "/projects" : "/info");
+      navigate(direction === "right" ? "/" : "/projects");
       setAnimationClass(""); // Reset animation class after navigation
     }, 500); // Adjust the timeout value based on your transition duration
   };
@@ -33,17 +30,13 @@ const Home = () => {
   return (
     <div className={`home__hero ${animationClass} ${!animationClass ? "slide-in" : ""}`}>
       <section className="hero__header">
-          <span className='link left' onClick={() => handleLinkClick("left")}>Info</span>
-          <span className='link right' onClick={() => handleLinkClick("right")}>Work</span>
+          <span className='link right' onClick={() => handleLinkClick("left")}>Work</span>
+          <span className='link left' onClick={() => handleLinkClick("right")}>Home</span>
         </section>
         <section className='hero__game' ref={heroGameRef}>
-          <Canvas>
-            {/*<Cube position={[-1.2, 0, 0]} />*/}
-            <Scene />
-          </Canvas>
         </section>
     </div>
   );
 };
 
-export default Home;
+export default Info;
