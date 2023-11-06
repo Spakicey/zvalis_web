@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Canvas } from '@react-three/fiber';
 import { Scene } from './threejs/Scene';
-//import Cube from './threejs/Cube';
+import Cube from './threejs/Cube';
 
 const Home = () => {
   const heroGameRef = useRef(null);

@@ -44,7 +44,15 @@ const Footer = () => {
                 <span className="c-link">
                   <span className="c-link__inner">
                     <span>Spotify</span>
-                    <span className="c-link__animated">Spotify</span>
+                    <span className="c-link__animated">
+                      <a
+                        href="https://open.spotify.com/user/spakicey"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                          Spotify
+                        </a>
+                    </span>
                   </span>
                 </span>
               </a>
@@ -57,7 +65,15 @@ const Footer = () => {
                 <span className="c-link">
                   <span className="c-link__inner">
                     <span>Instagram</span>
-                    <span className="c-link__animated">Instagram</span>
+                    <span className="c-link__animated">
+                      <a
+                        href="https://www.instagram.com/spakicey/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                          Instagram
+                        </a>
+                    </span>
                   </span>
                 </span>
               </a>
@@ -75,7 +91,15 @@ const Footer = () => {
                 <span className="c-link">
                   <span className="c-link__inner">
                     <span>GitHub</span>
-                    <span className="c-link__animated">GitHub</span>
+                    <span className="c-link__animated">
+                      <a
+                        href="https://github.com/spakicey"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                          GitHub
+                        </a>
+                    </span>
                   </span>
                 </span>
               </a>
@@ -88,7 +112,15 @@ const Footer = () => {
                 <span className="c-link">
                   <span className="c-link__inner">
                     <span>LinkedIn</span>
-                    <span className="c-link__animated">LinkedIn</span>
+                    <span className="c-link__animated">
+                      <a
+                        href="https://www.linkedin.com/in/zvalis/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                          LinkedIn
+                        </a>
+                    </span>
                   </span>
                 </span>
               </a>

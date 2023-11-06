@@ -6,7 +6,6 @@ const Header = () => {
         <div className="nav__name">
           <a
                 href="/"
-                target="_blank"
                 rel="noopener noreferrer"
                 >
                   Zacheriah Valis
