@@ -35,8 +35,8 @@ const Footer = () => {
         <div className="footer__links">
           <div className="link__flex">
             <div className="link__flex__inner">
-              <a
-                href=""
+              <p
+                href="https://open.spotify.com/user/spakicey"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="c-button"
@@ -55,9 +55,9 @@ const Footer = () => {
                     </span>
                   </span>
                 </span>
-              </a>
-              <a
-                href=""
+              </p>
+              <p
+                href="https://www.instagram.com/spakicey/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="c-button"
@@ -76,14 +76,14 @@ const Footer = () => {
                     </span>
                   </span>
                 </span>
-              </a>
+              </p>
             </div>
           </div>
 
           <div className="link_flex">
             <div className="link__flex__inner second">
-              <a
-                href=""
+              <p
+                href="https://github.com/spakicey"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="c-button"
@@ -102,9 +102,9 @@ const Footer = () => {
                     </span>
                   </span>
                 </span>
-              </a>
-              <a
-                href=""
+              </p>
+              <p
+                href="https://www.linkedin.com/in/zvalis/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="c-button"
@@ -123,7 +123,7 @@ const Footer = () => {
                     </span>
                   </span>
                 </span>
-              </a>
+              </p>
             </div>
           </div>
         </div>
@@ -131,12 +131,11 @@ const Footer = () => {
       <div className="home__footer__right">
         <p>
           <a
-              href="/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >
-                Acknowledgements
-              </a>
+            href="/credit"
+            rel="noopener noreferrer"
+            >
+              Acknowledgements
+            </a>
         </p>
       </div>
     </footer>

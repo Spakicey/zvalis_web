@@ -135,6 +135,8 @@ body, #root {
       &__game {
         display: flex;
         flex-direction: column; // or row, depending on your layout
+        flex-shrink: 0;
+        flex-grow: 0;
         height: 60vh; // Take up 100% of the viewport height
         min-height: 100px;
         overflow: hidden;
@@ -147,6 +149,11 @@ body, #root {
         justify-content: space-between;
         line-height: 1.4;
         z-index: 2; // Set a higher z-index value for header and footer
+
+
+        &.center {
+          @extend %title-100;
+        }
 
         .link {
           @extend %title-100;

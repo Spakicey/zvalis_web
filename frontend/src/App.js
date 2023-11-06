@@ -6,6 +6,7 @@ import Info from "./components/Info";
 import Projects from './components/Projects';
 import Details from './components/projectDetails';
 import Footer from './components/Footer';
+import Credit from './components/Credit';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/info" element={<Info/>} />
           <Route exact path="/projects" element={<Projects/>} />
           <Route exact path='/details/:id' element={<Details/>} />
+          <Route exact path='/credit' element={<Credit/>} />
         </Routes>
         <Footer />
       </main>

@@ -26,7 +26,6 @@ const Home = () => {
     if (heroGameElement) {
       const availableHeight = window.innerHeight - homeNavHeight - heroHeaderHeight - footerHeight;
       heroGameElement.style.minHeight = `${availableHeight-50}px`;
-      console.log("avail height:" + availableHeight);
     }
   }, [])
 

@@ -35,7 +35,9 @@ const Header = () => {
         <span className="c-link">
           <span className="c-link__inner">
             <span> Contact </span>
-            <span className="c-link__animated"> Contact </span>
+            <span className="c-link__animated">
+
+            </span>
           </span>
         </span>
       </button>
