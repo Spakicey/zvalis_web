@@ -36,10 +36,9 @@ const Home = () => {
           <span className='link right' onClick={() => handleLinkClick("right")}>Work</span>
         </section>
         <section className='hero__game' ref={heroGameRef}>
-          <Canvas>
-            {/*<Cube position={[-1.2, 0, 0]} />*/}
+          {/*<Canvas>
             <Scene />
-          </Canvas>
+          </Canvas>*/}
         </section>
     </div>
   );

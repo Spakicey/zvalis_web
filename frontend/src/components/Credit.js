@@ -24,6 +24,10 @@ const Credit = () => {
           <span className='link'>Thanks</span>
         </section>
         <section className='hero__game' ref={heroGameRef}>
+          <h1 href="https://www.seyi.dev/">Oluwadare Oluwaseyi [Stylistic Inspiration + Code]</h1>
+          <h1 href="https://www.fayemi.design/">Isaac Fayemi [Stylistic Inspiration]</h1>
+          <h1 href="https://github.com/Domenicobrz/R3F-in-practice/tree/main/car-physics/public/models">Domenicobrz [Initial Race Game Scene]</h1>
+
         </section>
     </div>
   );
