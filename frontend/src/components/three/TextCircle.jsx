@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { useFrame, useLoader } from '@react-three/fiber'
 import React, { useRef, useEffect, useLayoutEffect } from 'react'
 import { RGBELoader } from 'three-stdlib'
@@ -7,6 +8,8 @@ import { mergeBufferGeometries } from 'three/examples/jsm/utils/BufferGeometryUt
 import { extend } from '@react-three/fiber'
 import { MeshTransmissionMaterial } from '@react-three/drei'
 import myFont from '../../static/fonts/font.json';
+import matcap1 from '../../static/textures/chemical_carpaint_blue.png';
+import matcap2 from '../../static/textures/envmap.hdr';
 
 extend({ TextGeometry });
 
@@ -15,8 +18,11 @@ export default function TextCircle({ config }) {
   const refMaterial = useRef();
   console.log(config, 'config!!!');
   const font = new FontLoader().parse(myFont);
+  const texture = new THREE.TextureLoader().load(matcap1);
+  //const texture = useLoader(RGBELoader, matcap2);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
 
-  //const texture = useLoader(RGBELoader, '/aerodynamics_workshop_1k.hdr')
   let geo = new TextGeometry(config.text, { font, size: config.fontSize, height: config.fontDepth, curveSegments: 100, bevelEnabled: false });
   geo.center();
   geo.computeBoundingBox();
@@ -122,8 +128,6 @@ export default function TextCircle({ config }) {
         float theta = (xx + 0.01*uTime*uRotateSpeed)*PI;
         pos = rotate(pos,vec3(1.,0.,0.), 0.5*PI*uTwists*xx + 0.01*uTime*uTwistSpeed);
 
-
-
         vec3 dir = vec3(sin(theta), cos(theta),pos.z);
         vec3 circled = vec3(dir.xy*uRadius,pos.z) + vec3(pos.y*dir.x,pos.y*dir.y,0.);
 
@@ -145,13 +149,13 @@ export default function TextCircle({ config }) {
   const result = (
     <mesh ref={refMesh} castShadow>
       <bufferGeometry attach="geometry" geometry={geo} />
-      <meshStandardMaterial onBeforeCompile={onBeforeCompile} ref={refMaterial} attach="material" color={config.color} />
 
-      {/* <MeshTransmissionMaterial
+      <MeshTransmissionMaterial
         ref={refMaterial}
-        // onBeforeCompile={onBeforeCompile}
+        onBeforeCompile={onBeforeCompile}
         attach="material"
         background={texture}
+        //map={texture}
         reflectivity={0.5}
         roughness={0}
         transmission={0.6}
@@ -161,7 +165,13 @@ export default function TextCircle({ config }) {
         distortionScale = {1}
           distortion = {1}
           temporalDistortion = {0.4}
-      /> */}
+      />
+      {/*      <meshStandardMaterial
+        onBeforeCompile={onBeforeCompile}
+        ref={refMaterial}
+        attach="material"
+        color={config.color}
+      />  */}
     </mesh>
   );
   return result

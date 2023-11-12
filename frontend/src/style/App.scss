@@ -1,4 +1,14 @@
 
+$bg-img: url('../static/CIMG0894.JPG');
+
+%padding-home {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  //padding-top: 1rem;
+  //padding-bottom: 1rem;
+}
+
+
 body, #root {
   margin: 0;
   width: 100%;
@@ -6,41 +16,81 @@ body, #root {
   padding: 0;
   overflow: visible;
 }
+
 .home {
+  @extend %padding-home;
+  background-color: tan; /* fallback color */
+  //background-image: $bg-img;
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  //padding: 2.4rem 0;
   visibility: visible;
 
+  &__header {
+    display: flex;
+    padding-bottom: .5rem;
+    height: 5vh;
+    width: 100%;
+    //position: fixed;
+    //top: 0;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &.left {
+
+    }
+
+    &.right {
+
+    }
+
+    .nav__button {
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+  }
+
   &__hero {
-    height: 100vh;
-    .hero {
-      &__spiral {
-        display: flex;
-        flex-direction: column; // or row, depending on your layout
-        flex-shrink: 0;
-        flex-grow: 0;
-        height: 100vh; // Take up 100% of the viewport height
-        min-height: 100px;
-        overflow: hidden;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        Canvas {
-          opacity: 0;
-          touch-action: auto;
-          animation: fade-in 3s ease 1s forwards;
+    .hero__spiral {
+      height: 80vh;
+      width: 80vh;
+      Canvas {
+        opacity: 0;
+        touch-action: auto;
+        animation: fade-in 3s ease 1s forwards;
 
-          @keyframes fade-in {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
           }
         }
       }
-
     }
+  }
+
+  &__footer {
+    display: flex;
+    padding-top: .5rem;
+    height: 5vh;
+    width: 100%;
+    //position: fixed;
+    //bottom: 0;
   }
 }
