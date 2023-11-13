@@ -19,10 +19,10 @@ body, #root {
 
 .home {
   @extend %padding-home;
-  background-color: tan; /* fallback color */
-  //background-image: $bg-img;
+  background-color: black; /* fallback color */
+  background-image: $bg-img;
   background-position: center;
-  background-size: cover;
+  //background-size: cover;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -60,14 +60,16 @@ body, #root {
   }
 
   &__hero {
-    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; // or row, depending on your layout
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 60vh; // Take up 100% of the viewport height
+    min-height: 100px;
+    overflow: hidden;
 
     .hero__spiral {
-      height: 80vh;
-      width: 80vh;
+
       Canvas {
         opacity: 0;
         touch-action: auto;

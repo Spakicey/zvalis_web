@@ -13,6 +13,7 @@ import matcap2 from '../../static/textures/envmap.hdr';
 import matcap3 from '../../static/textures/metal_plate_rough_4k.jpg';
 import matcap4 from '../../static/textures/metal_plate_diff_4k.jpg';
 import matcap5 from '../../static/textures/tomato.b5147119.png';
+import matcap6 from '../../static/textures/clay_alien.a1b7f7c8.png';
 
 extend({ TextGeometry });
 
@@ -22,8 +23,8 @@ export default function Text1({ config }) {
   console.log(config, 'config!!!');
   const font = new FontLoader().parse(myFont);
 
-  //const texture = new THREE.TextureLoader().load(matcap3);
-  const texture = useLoader(RGBELoader, matcap2);
+  const texture = new THREE.TextureLoader().load(matcap6);
+  //const texture = useLoader(RGBELoader, matcap2);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
 
@@ -65,10 +66,19 @@ export default function Text1({ config }) {
   const result = (
     <mesh ref={refMesh} castShadow>
       <bufferGeometry attach="geometry" geometry={geo} />
-      <MeshTransmissionMaterial
+      <meshBasicMaterial
+        //onBeforeCompile={onBeforeCompile}
         ref={refMaterial}
         attach="material"
-        background={texture}
+        map={texture}
+      />
+
+      {/*
+      <meshTransmissionMaterial
+        ref={refMaterial}
+        attach="material"
+        //background={texture}
+        map={texture}
         reflectivity={0.5}
         roughness={0}
         transmission={0.6}
@@ -78,13 +88,6 @@ export default function Text1({ config }) {
         distortionScale = {1}
           distortion = {1}
           temporalDistortion = {0.4}
-      />
-      {/*
-   <meshBasicMaterial
-        //onBeforeCompile={onBeforeCompile}
-        ref={refMaterial}
-        attach="material"
-        map={texture}
       />
       */}
     </mesh>

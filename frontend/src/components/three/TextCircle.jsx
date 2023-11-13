@@ -9,7 +9,9 @@ import { extend } from '@react-three/fiber'
 import { MeshTransmissionMaterial } from '@react-three/drei'
 import myFont from '../../static/fonts/font.json';
 import matcap1 from '../../static/textures/chemical_carpaint_blue.png';
+import matcap3 from '../../static/textures/tomato.b5147119.png'
 import matcap2 from '../../static/textures/envmap.hdr';
+import matcap6 from '../../static/textures/clay_alien.a1b7f7c8.png';
 
 extend({ TextGeometry });
 
@@ -124,6 +126,8 @@ export default function TextCircle({ config }) {
       '#include <begin_vertex>',
       '#include <begin_vertex>' +
         `
+        xx = mapRange(position.x, uMin.x, uMax.x, -1., 1.0);
+
         vec3 pos = transformed;
         float theta = (xx + 0.01*uTime*uRotateSpeed)*PI;
         pos = rotate(pos,vec3(1.,0.,0.), 0.5*PI*uTwists*xx + 0.01*uTime*uTwistSpeed);
@@ -155,12 +159,12 @@ export default function TextCircle({ config }) {
         onBeforeCompile={onBeforeCompile}
         attach="material"
         background={texture}
-        //map={texture}
+        map={texture}
         reflectivity={0.5}
         roughness={0}
         transmission={0.6}
         thickness={0.5}
-        color={'#ff9cf5'}
+        color={config.color}
         ior={0.7}
         distortionScale = {1}
           distortion = {1}
