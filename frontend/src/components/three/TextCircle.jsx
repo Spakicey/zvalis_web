@@ -12,6 +12,7 @@ import matcap1 from '../../static/textures/chemical_carpaint_blue.png';
 import matcap3 from '../../static/textures/tomato.b5147119.png'
 import matcap2 from '../../static/textures/envmap.hdr';
 import matcap6 from '../../static/textures/clay_alien.a1b7f7c8.png';
+import matcap7 from '../../static/textures/venice_sunset_1k.hdr'
 
 extend({ TextGeometry });
 
@@ -21,7 +22,7 @@ export default function TextCircle({ config }) {
   console.log(config, 'config!!!');
   const font = new FontLoader().parse(myFont);
   const texture = new THREE.TextureLoader().load(matcap1);
-  //const texture = useLoader(RGBELoader, matcap2);
+  //const texture = useLoader(RGBELoader, matcap7);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
 
@@ -153,14 +154,14 @@ export default function TextCircle({ config }) {
   const result = (
     <mesh ref={refMesh} castShadow>
       <bufferGeometry attach="geometry" geometry={geo} />
-
       <MeshTransmissionMaterial
         ref={refMaterial}
         onBeforeCompile={onBeforeCompile}
         attach="material"
         background={texture}
         map={texture}
-        reflectivity={0.5}
+        //wireframe={true}
+        reflectivity={1}
         roughness={0}
         transmission={0.6}
         thickness={0.5}
