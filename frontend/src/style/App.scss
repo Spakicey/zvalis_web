@@ -93,9 +93,9 @@ body, #root {
     height: 60vh; // Take up 100% of the viewport height
     min-height: 100px;
     overflow: hidden;
-    //background-image: $bg-img;
+    //background-image: $bg2-img;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
 

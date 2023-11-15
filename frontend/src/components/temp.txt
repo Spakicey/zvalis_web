@@ -82,3 +82,36 @@
             maxPolarAngle={(0.99 * Math.PI) / 2}
           />
           <CameraPositionLogger event='mousedown' />
+
+  const infoConfig = useControls('infoText', {
+    text: 'INFO',
+    fontSize: { value: 1, min: 0.1, max: 2 },
+    fontDepth: { value: 1, min: 0.01, max: 3.5 },
+    color: '#DBE2E9'
+  })
+
+  const workConfig = useControls('workText', {
+    text: 'WORK',
+    fontSize: { value: 1, min: 0.1, max: 2 },
+    fontDepth: { value: 1, min: 0.01, max: 3.5 },
+    color: '#DBE2E9'
+  })
+
+  const nameConfig = useControls('nameText', {
+    text: 'Zack Valis',
+    fontSize: { value: 1, min: 0.1, max: 2 },
+    fontDepth: { value: .5, min: 0.01, max: 3.5 },
+    color: '#DBE2E9'
+  })
+
+  const jobConfig = useControls('jobText', {
+    text: 'SOFTWARE DEVELOPER',
+    fontSize: { value: .75, min: 0.1, max: 2 },
+    fontDepth: { value: .75, min: 0.01, max: 3.5 },
+    color: '#FFD700'
+  })
+
+    function oscillate(input, min, max) {
+    var range = max - min;
+    return min + Math.abs(((input + range) % (range * 2)) - range);
+  };

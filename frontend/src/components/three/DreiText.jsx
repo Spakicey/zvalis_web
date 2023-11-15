@@ -6,6 +6,10 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { useFrame, extend, useLoader } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from "@react-three/drei";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { MaterialXLoader } from "three/examples/jsm/loaders/MaterialXLoader.js";
+
+
 import myFont from '../../static/fonts/font.json';
 import myFont2 from '../../static/fonts/Cloister.json';
 import myFont3 from '../../static/fonts/Gotisch.json';
@@ -15,7 +19,8 @@ import matcap3 from '../../static/textures/metal_plate_rough_4k.jpg';
 import matcap4 from '../../static/textures/metal_plate_diff_4k.jpg';
 import matcap5 from '../../static/textures/tomato.b5147119.png';
 import matcap6 from '../../static/textures/clay_alien.a1b7f7c8.png';
-import matcap7 from '../../static/textures/venice_sunset_1k.hdr'
+import matcap7 from '../../static/textures/venice_sunset_1k.hdr';
+import matcap8 from '../../static/textures/standard_surface_chrome.mtlx'
 
 extend({ TextGeometry });
 
@@ -26,9 +31,14 @@ export default function Text1({ config }) {
   const font = new FontLoader().parse(myFont3);
 
   //const texture = new THREE.TextureLoader().load(matcap5);
-  const texture = useLoader(RGBELoader, matcap7);
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
+  //const texture = useLoader(RGBELoader, matcap7);
+  const texture = new RGBELoader()
+  .setPath( 'textures/equirectangular/' )
+  .load( matcap7, function () {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+  } );
+  //texture.wrapS = THREE.RepeatWrapping;
+  //texture.wrapT = THREE.RepeatWrapping;
 
   // For videos as texture
   //texture = new THREE.VideoTexture(video);
@@ -92,6 +102,7 @@ export default function Text1({ config }) {
         //map={texture}
         color={'red'}
       />
+
 
       */}
     </mesh>
