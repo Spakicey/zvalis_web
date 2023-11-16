@@ -57,7 +57,7 @@ body, #root {
     display: flex;
     justify-content: space-between;
     padding-bottom: .5rem;
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
     height: 5.5vh;
     width: 100%;
 
@@ -78,21 +78,6 @@ body, #root {
       }
     }
 
-    &__center {
-      display: flex;
-      justify-content: center;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin: 0.2em;
-      width: 350px;
-      min-width: 200px;
-      height: 100px;
-      display: flex;
-      overflow: hidden;
-    }
-
     &__right {
       display: flex;
       max-width: 300px;
@@ -103,6 +88,7 @@ body, #root {
       }
 
       .contact {
+        padding-top: .6rem;
         padding-left: .5rem;
         display: flex;
         background-color: black;
@@ -116,9 +102,9 @@ body, #root {
     justify-content: space-between;
     padding-left: 4rem;
     padding-right: 4rem;
-    padding-top: 1rem;
-    margin-top: 3rem;
-    padding-bottom: 1rem;
+    padding-top: .5rem;
+    //margin-top: 3rem;
+    padding-bottom: .5rem;
 
     .left {
       display: flex;
@@ -127,22 +113,38 @@ body, #root {
       background-size: contain;
       background-repeat: no-repeat;
       margin: 0.2em;
-      width: 400px;
-      height: 200px;
+      width: 20rem;
+      height: 10rem;
       display: inline-block;
       overflow: hidden;
 
     }
 
+    .center {
+      display: flex;
+      justify-content: space-around;
+      background-image: $fire2-img;
+      background-position: bottom;
+      background-size: 100%;
+      //background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0.2em;
+      width: 40rem;
+      height: 10rem;
+      display: inline-block;
+      overflow: hidden;
+    }
+
     .right {
       display: flex;
+      justify-content: space-around;
       background-image: $fire2-img;
       background-position: bottom;
       background-size: contain;
       background-repeat: no-repeat;
       margin: 0.2em;
-      width: 400px;
-      height: 200px;
+      width: 20rem;
+      height: 10rem;
       display: inline-block;
       overflow: hidden;
 
@@ -156,21 +158,55 @@ body, #root {
 
   &__hero {
     display: flex;
-    height: 50vh; // Take up 100% of the viewport height
+    height: 65vh; // Take up 100% of the viewport height
     min-height: 100px;
     overflow: hidden;
     background-image: $bg2-img;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
+
+    .text {
+      width: 100vw;
+      //padding-left: 7rem;
+      padding-top: 17rem;
+      text-align: center;
+      //background-color: black;
+      color: red;
+    }
   }
 
   &__footer {
-    display: flex;
-    padding-top: .5rem;
+    position: relative;
     height: 5vh;
     width: 100%;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-top: .5rem;
+    padding-bottom: .5rem;
+    background-color: black;
     //position: fixed;
     //bottom: 0;
+
+    .footer {
+      &__left {
+        .place {
+
+        }
+        .time {
+
+        }
+      }
+      &__center {
+        .socials {
+
+        }
+      }
+      &__right {
+        .credit {
+
+        }
+      }
+    }
   }
 }
