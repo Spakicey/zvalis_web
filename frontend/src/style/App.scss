@@ -7,10 +7,9 @@ $fire2-img: url('../static/fire2.gif');
 %padding-home {
   padding-left: 1rem;
   padding-right: 1rem;
-  //padding-top: 1rem;
-  //padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
-
 
 body, #root {
   margin: 0;
@@ -22,7 +21,7 @@ body, #root {
 
 .home {
   @extend %padding-home;
-  background-color: tan; /* fallback color */
+  background-color: black; /* fallback color */
   background-image: $bg-img;
   background-position: center;
   background-size: cover;
@@ -31,33 +30,85 @@ body, #root {
   min-height: 100vh;
   visibility: visible;
 
-  Canvas {
-    opacity: 0;
-    touch-action: auto;
-    animation: fade-in 3s ease 1s forwards;
+  &__canvas {
+    position: fixed !important;
+    top: 0px;
+    left: 0px;
+    width: 100vw !important;
+    height: 100vh !important;
 
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
+    Canvas {
+      opacity: 0;
+      touch-action: auto;
+      animation: fade-in 1s ease .5s forwards;
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     }
   }
 
   &__header {
     display: flex;
+    justify-content: space-between;
     padding-bottom: .5rem;
-    height: 15vh;
+    margin-bottom: 2rem;
+    height: 5.5vh;
     width: 100%;
-    background-image: $fire2-img;
-    background-position: bottom;
-    background-size: center;
-    background-repeat: no-repeat;
 
-    //position: fixed;
-    //top: 0;
+    &__left {
+      display: flex;
+      max-width: 49rem;
+      //margin-right: 5rem;
+      .name {
+        padding-right: .5rem;
+        background-color: black;
+        color: red;
+
+      }
+      .folio {
+        display: flex;
+        background-color: black;
+        color: red;
+      }
+    }
+
+    &__center {
+      display: flex;
+      justify-content: center;
+      background-image: $fire2-img;
+      background-position: bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0.2em;
+      width: 350px;
+      min-width: 200px;
+      height: 100px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    &__right {
+      display: flex;
+      max-width: 300px;
+      width: 100%;
+      .availability {
+        background-color: black;
+        color: red;
+      }
+
+      .contact {
+        padding-left: .5rem;
+        display: flex;
+        background-color: black;
+        color: red;
+      }
+    }
   }
 
   &__nav {
@@ -66,19 +117,34 @@ body, #root {
     padding-left: 4rem;
     padding-right: 4rem;
     padding-top: 1rem;
+    margin-top: 3rem;
     padding-bottom: 1rem;
 
     .left {
+      display: flex;
       background-image: $fire2-img;
       background-position: bottom;
       background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0.2em;
+      width: 400px;
+      height: 200px;
+      display: inline-block;
+      overflow: hidden;
 
     }
 
     .right {
+      display: flex;
       background-image: $fire2-img;
       background-position: bottom;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0.2em;
+      width: 400px;
+      height: 200px;
+      display: inline-block;
+      overflow: hidden;
 
     }
 
@@ -90,11 +156,11 @@ body, #root {
 
   &__hero {
     display: flex;
-    height: 60vh; // Take up 100% of the viewport height
+    height: 50vh; // Take up 100% of the viewport height
     min-height: 100px;
     overflow: hidden;
-    //background-image: $bg2-img;
-    background-position: center;
+    background-image: $bg2-img;
+    background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
   }
