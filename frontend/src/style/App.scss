@@ -19,7 +19,7 @@ body, #root {
   overflow: visible;
 }
 
-.home {
+.main {
   @extend %padding-home;
   background-color: black; /* fallback color */
   background-image: $bg-img;
@@ -30,165 +30,144 @@ body, #root {
   min-height: 100vh;
   visibility: visible;
 
-  &__canvas {
-    position: fixed !important;
-    top: 0px;
-    left: 0px;
-    width: 100vw !important;
-    height: 100vh !important;
-
-    Canvas {
-      opacity: 0;
-      touch-action: auto;
-      animation: fade-in 1s ease .5s forwards;
-
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
   &__header {
     display: flex;
-    justify-content: space-between;
-    padding-bottom: .5rem;
-    //margin-bottom: 2rem;
+    min-width: 98vw;
     height: 5.5vh;
-    width: 100%;
-
-    &__left {
-      display: flex;
-      max-width: 49rem;
-      //margin-right: 5rem;
-      .name {
-        padding-right: .5rem;
-        background-color: black;
-        color: red;
-
-      }
-      .folio {
-        display: flex;
-        background-color: black;
-        color: red;
-      }
-    }
-
-    &__right {
-      display: flex;
-      max-width: 300px;
-      width: 100%;
-      .availability {
-        background-color: black;
-        color: red;
-      }
-
-      .contact {
-        padding-top: .6rem;
-        padding-left: .5rem;
-        display: flex;
-        background-color: black;
-        color: red;
-      }
-    }
-  }
-
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: .5rem;
-    //margin-top: 3rem;
-    padding-bottom: .5rem;
-
-    .left {
-      display: flex;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin: 0.2em;
-      width: 20rem;
-      height: 10rem;
-      display: inline-block;
-      overflow: hidden;
-
-    }
-
-    .center {
-      display: flex;
-      justify-content: space-around;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: 100%;
-      //background-size: contain;
-      background-repeat: no-repeat;
-      margin: 0.2em;
-      width: 40rem;
-      height: 10rem;
-      display: inline-block;
-      overflow: hidden;
-    }
-
-    .right {
-      display: flex;
-      justify-content: space-around;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin: 0.2em;
-      width: 20rem;
-      height: 10rem;
-      display: inline-block;
-      overflow: hidden;
-
-    }
-
-    .nav__button {
-      flex-shrink: 0;
-      flex-grow: 0;
-    }
-  }
-
-  &__hero {
-    display: flex;
-    height: 65vh; // Take up 100% of the viewport height
-    min-height: 100px;
     overflow: hidden;
-    background-image: $bg2-img;
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
+    .canvas {
+      position: fixed !important;
+      top: 0px;
+      left: 0px;
+      width: 100vw !important;
+      height: 100vh !important;
 
-    .text {
-      width: 100vw;
-      //padding-left: 7rem;
-      padding-top: 17rem;
-      text-align: center;
-      //background-color: black;
-      color: red;
+      Canvas {
+        opacity: 0;
+        touch-action: auto;
+        animation: fade-in 1s ease .5s forwards;
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .header {
+      display: inherit;
+      justify-content: space-between;
+      .left {
+        display: flex;
+        flex-grow: 1;
+        .name {
+          padding-right: .5rem;
+          background-color: black;
+          color: red;
+        }
+        .folio {
+          margin-right: auto;
+          background-color: black;
+          color: red;
+        }
+      }
+      .center {
+        display: flex;
+        .info {
+          background-image: $fire2-img;
+          background-position: bottom;
+          background-size: contain;
+          background-repeat: no-repeat;
+          margin: 0.2em;
+          width: 8rem;
+          height: 5rem;
+          overflow: hidden;
+        }
+        .name {
+          background-image: $fire2-img;
+          background-position: bottom;
+          background-size: 100%;
+          //background-size: contain;
+          background-repeat: no-repeat;
+          margin: 0.2em;
+          width: 18rem;
+          height: 5.5rem;
+          overflow: hidden;
+        }
+        .work {
+          justify-content: space-around;
+          background-image: $fire2-img;
+          background-position: bottom;
+          background-size: contain;
+          background-repeat: no-repeat;
+          margin: 0.2em;
+          width: 8rem;
+          height: 5rem;
+          overflow: hidden;
+        }
+      }
+      .right {
+        display: flex;
+        flex-grow: 1;
+        .availability {
+          background-color: black;
+          color: red;
+        }
+        .contact {
+          padding-top: .6rem;
+          padding-left: .5rem;
+          display: flex;
+          background-color: black;
+          color: red;
+        }
+      }
+    }
+  }
+
+  &__home {
+    visibility: hidden;
+    .home {
+      &__hero {
+        display: flex;
+        height: 70vh; // Take up 100% of the viewport height
+        min-height: 100px;
+        overflow: hidden;
+        background-image: $bg2-img;
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        .text {
+          width: 100vw;
+          //padding-left: 7rem;
+          padding-top: 17rem;
+          text-align: center;
+          //background-color: black;
+          color: red;
+        }
+      }
     }
   }
 
   &__footer {
+    visibility: visible;
     position: relative;
     height: 5vh;
-    width: 100%;
+    //width: 100%;
     padding-left: 4rem;
     padding-right: 4rem;
     margin-top: .5rem;
     padding-bottom: .5rem;
-    background-color: black;
+    background-color: grey;
     //position: fixed;
     //bottom: 0;
 
     .footer {
+      display: flex;
       &__left {
         .place {
 
