@@ -4,6 +4,30 @@ $bg2-img: url('../static/CIMG1165.JPG');
 $fire-img: url('../static/fire.gif');
 $fire2-img: url('../static/fire2.gif');
 
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
 %padding-home {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -20,171 +44,172 @@ body, #root {
 }
 
 .main {
-  @extend %padding-home;
   background-color: black; /* fallback color */
   background-image: $bg-img;
   background-position: center;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   visibility: visible;
+  text-align: center;
+}
 
-  &__header {
-    display: flex;
-    min-width: 98vw;
-    height: 5.5vh;
+.main > * {
+  padding: 10px;
+  @include flex(1 100%);
+}
+
+.header {
+  .canvas {
+    position: fixed !important;
+    top: 0px;
+    left: 0px;
+    width: 100vw !important;
+    height: 100vh !important;
+
+    Canvas {
+      opacity: 0;
+      touch-action: auto;
+      animation: fade-in 1s ease .5s forwards;
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .container {
+    @include flexbox();
+    justify-content: space-around;
+    color: red;
+
+    .name {
+      background-color: black;
+    }
+    .folio {
+      background-color: black;
+    }
+    .info3 {
+      background-image: $fire2-img;
+      background-position: bottom;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 8rem;
+      height: 5rem;
+      overflow: hidden;
+    }
+    .name3 {
+      background-image: $fire2-img;
+      background-position: bottom;
+      background-size: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 18rem;
+      height: 5.5rem;
+      overflow: hidden;
+    }
+    .work3 {
+      background-image: $fire2-img;
+      background-position: bottom;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 8rem;
+      height: 5rem;
+      overflow: hidden;
+    }
+    .avail {
+      background-color: black;
+
+    }
+    .contact {
+      background-color: black;
+
+    }
+
+    // Small screens
+    @media all and (max-width: 900px) {
+      flex-flow: wrap;
+      .name {
+        @include order(1);
+        flex-basis: 50%;
+      }
+      .folio {
+        @include order(2);
+        flex-basis: 50%;
+      }
+      .info3 {
+        @include order(3);
+        flex-basis: 50%;
+      }
+      .name3 {
+        @include order(5);
+        flex-basis: 100%;
+      }
+      .work3 {
+        @include order(4);
+        flex-basis: 50%;
+      }
+      .avail {
+        @include order(6);
+        flex-basis: 50%;
+      }
+      .contact {
+        @include order(7);
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+.home {
+  visibility: visible;
+  .container {
+    @include flexbox();
+    height: 80vh; // Take up 100% of the viewport height
+    min-height: 100px;
     overflow: hidden;
-    .canvas {
-      position: fixed !important;
-      top: 0px;
-      left: 0px;
-      width: 100vw !important;
-      height: 100vh !important;
+    background-image: $bg2-img;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-      Canvas {
-        opacity: 0;
-        touch-action: auto;
-        animation: fade-in 1s ease .5s forwards;
-
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      }
+    .text {
+      width: 100vw;
+      padding-top: 17rem;
+      text-align: center;
+      color: red;
     }
 
-    .header {
-      display: inherit;
-      justify-content: space-between;
-      .left {
-        display: flex;
-        flex-grow: 1;
-        .name {
-          padding-right: .5rem;
-          background-color: black;
-          color: red;
-        }
-        .folio {
-          margin-right: auto;
-          background-color: black;
-          color: red;
-        }
-      }
-      .center {
-        display: flex;
-        .info {
-          background-image: $fire2-img;
-          background-position: bottom;
-          background-size: contain;
-          background-repeat: no-repeat;
-          margin: 0.2em;
-          width: 8rem;
-          height: 5rem;
-          overflow: hidden;
-        }
-        .name {
-          background-image: $fire2-img;
-          background-position: bottom;
-          background-size: 100%;
-          //background-size: contain;
-          background-repeat: no-repeat;
-          margin: 0.2em;
-          width: 18rem;
-          height: 5.5rem;
-          overflow: hidden;
-        }
-        .work {
-          justify-content: space-around;
-          background-image: $fire2-img;
-          background-position: bottom;
-          background-size: contain;
-          background-repeat: no-repeat;
-          margin: 0.2em;
-          width: 8rem;
-          height: 5rem;
-          overflow: hidden;
-        }
-      }
-      .right {
-        display: flex;
-        flex-grow: 1;
-        .availability {
-          background-color: black;
-          color: red;
-        }
-        .contact {
-          padding-top: .6rem;
-          padding-left: .5rem;
-          display: flex;
-          background-color: black;
-          color: red;
-        }
-      }
+    // Small screens
+    @media all and (max-width: 900px) {
+      height: 51vh;
     }
   }
+}
 
-  &__home {
-    visibility: hidden;
-    .home {
-      &__hero {
-        display: flex;
-        height: 70vh; // Take up 100% of the viewport height
-        min-height: 100px;
-        overflow: hidden;
-        background-image: $bg2-img;
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
+.footer {
+  .container {
+    @include flexbox();
+    justify-content: space-around;
+    background-color: black;
+    color: red;
+    overflow: hidden;
 
-        .text {
-          width: 100vw;
-          //padding-left: 7rem;
-          padding-top: 17rem;
-          text-align: center;
-          //background-color: black;
-          color: red;
-        }
+    // Small screens
+    @media all and (max-width: 900px) {
+      flex-flow: wrap;
+      .clock {
+        @include order(1);
       }
-    }
-  }
-
-  &__footer {
-    visibility: visible;
-    position: relative;
-    height: 5vh;
-    //width: 100%;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin-top: .5rem;
-    padding-bottom: .5rem;
-    background-color: grey;
-    //position: fixed;
-    //bottom: 0;
-
-    .footer {
-      display: flex;
-      &__left {
-        .place {
-
-        }
-        .time {
-
-        }
+      .socials {
+        @include order(2);
       }
-      &__center {
-        .socials {
-
-        }
-      }
-      &__right {
-        .credit {
-
-        }
+      .credit {
+        @include order(3);
       }
     }
   }

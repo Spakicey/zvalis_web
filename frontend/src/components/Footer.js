@@ -26,26 +26,17 @@ const Footer = () => {
   }, []); // Empty dependency array ensures that this effect runs once after the initial render
 
   return (
-    <footer className='main__footer'>
-      <section className='home__footer'>
-        <div className='footer__left'>
-          <p className='place'>CLT, NC</p>
-          <div className='time'>{estTime}</div>
+    <footer className='footer'>
+      <div className='container'>
+        <p className='clock'>CLT, NC: {estTime}</p>
+        <div className='socials'>
+          <span>SPOTIFY </span>
+          <span>INSTAGRAM </span>
+          <span>GITHUB </span>
+          <span>LINKEDIN</span>
         </div>
-        <div className='footer__center'>
-          <div className='socials'>
-            <span>SPOTIFY</span>
-            <span>INSTAGRAM</span>
-            <span>GITHUB</span>
-            <span>LINKEDIN</span>
-          </div>
-        </div>
-        <div className='footer__right'>
-          <div className='credit'>
-            <span>ACKNOWLEDGEMENTS</span>
-          </div>
-        </div>
-      </section>
+        <span className='credit'>ACKNOWLEDGEMENTS</span>
+      </div>
     </footer>
   );
 };

@@ -27,30 +27,24 @@ const Header = () => {
   });
 
   return (
-    <header ref={ref} className='main__header'>
-      <section className='header'>
-        <div className='left'>
-          <div className='name'>
-            <span>ZACHERIAH <br /> VALIS</span>
-          </div>
-          <div className='folio'>
-            <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2023</span>
-          </div>
+    <header ref={ref} className='header'>
+      <div className='container'>
+        <div className='name'>
+          <span>ZACHERIAH <br /> VALIS</span>
         </div>
-        <div className='center'>
-          <div className="info" ref={infoView} />
-          <div className='name' ref={nameView} />
-          <div className="work" ref={workView} />
+        <div className='folio'>
+          <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2023</span>
         </div>
-        <div className='right'>
-          <div className='availability'>
-            <span>AVAILABLE FOR FREELANCE <br /> WORK FROM JANUARY 2024</span>
-          </div>
-          <div className='contact'>
-            <span>CONTACT</span>
-          </div>
+        <div className="info3" ref={infoView} />
+        <div className='name3' ref={nameView} />
+        <div className="work3" ref={workView} />
+        <div className='avail'>
+          <span>AVAILABLE FOR FREELANCE WORK <br /> FROM JANUARY 2024</span>
         </div>
-      </section>
+        <div className='contact'>
+          <span><br />CONTACT</span>
+        </div>
+      </div>
 
       <Leva hidden />
       <Canvas
