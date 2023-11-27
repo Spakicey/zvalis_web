@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='container'>
-        <p className='clock'>CLT, NC: {estTime}</p>
+        <span className='clock'>CLT, NC: {estTime}</span>
         <div className='socials'>
           <span>SPOTIFY </span>
           <span>INSTAGRAM </span>

@@ -3,6 +3,7 @@ $bg-img: url('../static/CIMG0894.JPG');
 $bg2-img: url('../static/CIMG1165.JPG');
 $fire-img: url('../static/fire.gif');
 $fire2-img: url('../static/fire2.gif');
+$col-ruby: #9B111E;
 
 @mixin flexbox() {
   display: -webkit-box;
@@ -85,9 +86,11 @@ body, #root {
   .container {
     @include flexbox();
     justify-content: space-around;
-    color: red;
+    align-items: center;
+    color: $col-ruby;
 
     .name {
+      text-align: center;
       background-color: black;
     }
     .folio {
@@ -169,7 +172,7 @@ body, #root {
   visibility: visible;
   .container {
     @include flexbox();
-    height: 80vh; // Take up 100% of the viewport height
+    height: 79vh;
     min-height: 100px;
     overflow: hidden;
     background-image: $bg2-img;
@@ -178,10 +181,11 @@ body, #root {
     background-repeat: no-repeat;
 
     .text {
+      visibility: hidden;
       width: 100vw;
       padding-top: 17rem;
       text-align: center;
-      color: red;
+      color: $col-ruby;
     }
 
     // Small screens
@@ -195,9 +199,19 @@ body, #root {
   .container {
     @include flexbox();
     justify-content: space-around;
-    background-color: black;
-    color: red;
+    align-items: center;
+    color: $col-ruby;
     overflow: hidden;
+
+    .clock {
+      background-color: black;
+    }
+    .socials {
+      background-color: black;
+    }
+    .credit {
+      background-color: black;
+    }
 
     // Small screens
     @media all and (max-width: 900px) {

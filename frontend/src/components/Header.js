@@ -1,6 +1,8 @@
-
-import React, { Suspense, useRef } from 'react';
+// Header.js
+import * as THREE from 'three';
+import React, { Suspense, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { Link } from 'react-router-dom';
 import {
   Center,
   View,
@@ -35,14 +37,14 @@ const Header = () => {
         <div className='folio'>
           <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2023</span>
         </div>
-        <div className="info3" ref={infoView} />
+        <Link className='info3' to='/info' ref={infoView} />
         <div className='name3' ref={nameView} />
-        <div className="work3" ref={workView} />
+        <Link className='work3' to='/work' ref={workView} />
         <div className='avail'>
           <span>AVAILABLE FOR FREELANCE WORK <br /> FROM JANUARY 2024</span>
         </div>
         <div className='contact'>
-          <span><br />CONTACT</span>
+          <span>CONTACT</span>
         </div>
       </div>
 
@@ -59,43 +61,27 @@ const Header = () => {
         <Suspense fallback={null}>
           <View index={1} track={nameView}>
             <Center>
-            <Environment files={HDR} background={false}/>
-            <PresentationControls
-              enabled={true}
-              rotation={[0,0,0]}
-              config={{ mass: 2, tension: 500 }}
-              snap={{ mass: 4, tension: 1500 }}
-              polar={[-Math.PI / 3, Math.PI / 3]}
-              azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
-                <Resize scale={8}>
-                  <Text>Zack Valis</Text>
-                </Resize>
-            </PresentationControls>
+              <PresentationControls
+                enabled={true}
+                rotation={[0,0,0]}
+                config={{ mass: 2, tension: 500 }}
+                snap={{ mass: 4, tension: 1500 }}
+                polar={[-Math.PI / 3, Math.PI / 3]}
+                azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
+                  <Environment files={HDR} background={false}/>
+                  <Resize scale={8}>
+                    <Text>Zack Valis</Text>
+                  </Resize>
+              </PresentationControls>
             </Center>
           </View>
           <View index={2} track={infoView}>
             <Environment files={HDR} background={false}/>
-            <PresentationControls
-              enabled={true}
-              rotation={[0,0,0]}
-              config={{ mass: 2, tension: 500 }}
-              snap={{ mass: 4, tension: 1500 }}
-              polar={[-Math.PI / 3, Math.PI / 3]}
-              azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
-                <Text>Info</Text>
-            </PresentationControls>
+            <Text>Info</Text>
           </View>
           <View index={3} track={workView}>
             <Environment files={HDR} background={false}/>
-            <PresentationControls
-              enabled={true}
-              rotation={[0,0,0]}
-              config={{ mass: 2, tension: 500 }}
-              snap={{ mass: 4, tension: 1500 }}
-              polar={[-Math.PI / 3, Math.PI / 3]}
-              azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
-                <Text>Work</Text>
-            </PresentationControls>
+            <Text>Work</Text>
           </View>
         </Suspense>
         <ambientLight />
