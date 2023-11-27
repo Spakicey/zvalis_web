@@ -32,10 +32,10 @@ const Header = () => {
     <header ref={ref} className='header'>
       <div className='container'>
         <div className='name'>
-          <span>ZACHERIAH <br /> VALIS</span>
+          <Link className='link-style' to='/'>ZACHERIAH <br /> VALIS</Link>
         </div>
         <div className='folio'>
-          <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2023</span>
+          <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2024</span>
         </div>
         <Link className='info3' to='/info' ref={infoView} />
         <div className='name3' ref={nameView} />

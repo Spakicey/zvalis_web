@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment-timezone';
 
 const Footer = () => {
@@ -35,7 +36,9 @@ const Footer = () => {
           <span>GITHUB </span>
           <span>LINKEDIN</span>
         </div>
-        <span className='credit'>ACKNOWLEDGEMENTS</span>
+        <div className='credit'>
+          <Link className='link-style' to='/credit'>ACKNOWLEDGEMENTS</Link>
+        </div>
       </div>
     </footer>
   );

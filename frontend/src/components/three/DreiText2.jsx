@@ -12,7 +12,7 @@ const SEGMENTS = 12;
 
 export default function Text({ children, vAlign = "center", hAlign = "center", size = 1, color = "#000000", ...props }) {
   const font = new FontLoader().parse(myFont);
-  const texture = useLoader(RGBELoader, matcap7);
+  //const texture = useLoader(RGBELoader, matcap7);
   //texture.wrapS = THREE.RepeatWrapping;
   //texture.wrapT = THREE.RepeatWrapping;
 
