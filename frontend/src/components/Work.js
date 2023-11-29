@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getProjects } from '../services/ProjectService';
 
 let img_partial = "http://127.0.0.1:8000";
-const Projects = () => {
+const Work = () => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
 
@@ -39,4 +39,4 @@ const Projects = () => {
    );
  };
 
- export default Projects;
+ export default Work;
