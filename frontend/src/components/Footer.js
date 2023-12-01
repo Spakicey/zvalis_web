@@ -1,4 +1,4 @@
-
+// Footer.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment-timezone';
@@ -30,11 +30,97 @@ const Footer = () => {
     <footer className='footer'>
       <div className='container'>
         <span className='clock'>CLT, NC: {estTime}</span>
-        <div className='socials'>
-          <span>SPOTIFY </span>
-          <span>INSTAGRAM </span>
-          <span>GITHUB </span>
-          <span>LINKEDIN</span>
+        <div className='socials-left'>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://open.spotify.com/user/spakicey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >spotify
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://open.spotify.com/user/spakicey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >spotify
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://www.instagram.com/spakicey/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >instagram
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://www.instagram.com/spakicey/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >instagram
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div className='socials-right'>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://github.com/spakicey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >github
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://github.com/spakicey"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >github
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://www.linkedin.com/in/zvalis/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >linkedin
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://www.linkedin.com/in/zvalis/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >linkedin
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
         </div>
         <div className='credit'>
           <Link className='link-style' to='/credit'>ACKNOWLEDGEMENTS</Link>

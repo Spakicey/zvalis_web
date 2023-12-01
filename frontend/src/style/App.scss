@@ -1,4 +1,6 @@
 
+@import './helpers/links.scss';
+
 $bg-img: url('../static/CIMG0894.JPG');
 $bg2-img: url('../static/CIMG1165.JPG');
 $fire-img: url('../static/fire.gif');
@@ -7,6 +9,7 @@ $col-ruby: #9B111E;
 $col-teal: #119B8E;
 $col-sapphire: #0000FF;
 $col-yellow: #FFFF00;
+$col-bone: #E3dAC9;
 
 %links {
   text-decoration: none;
@@ -15,7 +18,15 @@ $col-yellow: #FFFF00;
 
   @media (any-pointer: fine) {
     &:hover {
-      color: $col-teal;
+      color: $col-bone;
+    }
+  }
+}
+
+%link-invert {
+  @media (any-pointer: fine) {
+    &:hover {
+      filter: invert(100%);
     }
   }
 }
@@ -121,6 +132,7 @@ body, #root {
       background-color: black;
     }
     .info3 {
+      @extend %link-invert;
       background-image: $fire2-img;
       background-position: bottom;
       background-size: contain;
@@ -140,6 +152,7 @@ body, #root {
       overflow: hidden;
     }
     .work3 {
+      @extend %link-invert;
       background-image: $fire2-img;
       background-position: bottom;
       background-size: contain;
@@ -153,7 +166,7 @@ body, #root {
 
     }
     .contact {
-      background-color: black;
+      //background-color: black;
 
     }
 
@@ -231,8 +244,12 @@ body, #root {
     .clock {
       background-color: black;
     }
-    .socials {
-      background-color: black;
+    .socials-left {
+      //background-color: black;
+    }
+    .socials-right {
+      //background-color: black;
+
     }
     .credit {
       background-color: black;
@@ -247,12 +264,19 @@ body, #root {
       flex-flow: wrap;
       .clock {
         @include order(1);
+        flex-basis: 50%;
       }
-      .socials {
-        @include order(2);
+      .socials-left {
+        @include order(3);
+        flex-basis: 100%;
+      }
+      .socials-right {
+        @include order(4);
+        flex-basis: 100%;
       }
       .credit {
-        @include order(3);
+        @include order(2);
+        flex-basis: 50%;
       }
     }
   }

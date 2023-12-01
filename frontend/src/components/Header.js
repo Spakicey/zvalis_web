@@ -1,13 +1,11 @@
 // Header.js
-import * as THREE from 'three';
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Link } from 'react-router-dom';
 import {
   Center,
   View,
   Preload,
-  Stats,
   Resize,
   OrbitControls,
   PresentationControls,
@@ -22,6 +20,12 @@ const Header = () => {
   const nameView = useRef();
   const infoView = useRef();
   const workView = useRef();
+
+  const email = 'example@example.com';
+  const subject = 'Subject Here';
+  const body = 'Body of the email here';
+
+  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   const { concurrent, distributed } = useControls({
     concurrent: { value: true },
@@ -44,7 +48,26 @@ const Header = () => {
           <span>AVAILABLE FOR FREELANCE WORK <br /> FROM JANUARY 2024</span>
         </div>
         <div className='contact'>
-          <span>CONTACT</span>
+          <p className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href={mailtoLink}
+                    rel="noopener noreferrer"
+                  >CONTACT
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href={mailtoLink}
+                    rel="noopener noreferrer"
+                  >CONTACT
+                  </a>
+                </span>
+              </span>
+            </span>
+          </p>
         </div>
       </div>
 
