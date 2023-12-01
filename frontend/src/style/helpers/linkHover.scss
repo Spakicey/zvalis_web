@@ -1,0 +1,19 @@
+%links {
+  text-decoration: none;
+  color: $col-ruby;
+  transition: color 0.3s;
+
+  @media (any-pointer: fine) {
+    &:hover {
+      color: $col-bone;
+    }
+  }
+}
+
+%link-invert {
+  @media (any-pointer: fine) {
+    &:hover {
+      filter: invert(100%);
+    }
+  }
+}

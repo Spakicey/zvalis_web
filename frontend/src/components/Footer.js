@@ -82,7 +82,7 @@ const Footer = () => {
               <span className="c-link__inner">
                 <span>
                   <a
-                    href="https://github.com/spakicey"
+                    href="https://www.github.com/spakicey"
                     target="_blank"
                     rel="noopener noreferrer"
                   >github
@@ -90,7 +90,7 @@ const Footer = () => {
                 </span>
                 <span className="c-link__animated">
                   <a
-                    href="https://github.com/spakicey"
+                    href="https://www.github.com/spakicey"
                     target="_blank"
                     rel="noopener noreferrer"
                   >github
