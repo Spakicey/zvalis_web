@@ -30,7 +30,7 @@ const Footer = () => {
     <footer className='footer'>
       <div className='container'>
         <span className='clock'>CLT, NC: {estTime}</span>
-        <div className='socials-left'>
+        <div className='socials-center'>
           <span className="c-button">
             <span className="c-link">
               <span className="c-link__inner">
@@ -75,8 +75,6 @@ const Footer = () => {
               </span>
             </span>
           </span>
-        </div>
-        <div className='socials-right'>
           <span className="c-button">
             <span className="c-link">
               <span className="c-link__inner">

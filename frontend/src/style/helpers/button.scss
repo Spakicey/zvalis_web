@@ -14,8 +14,7 @@
 
   &:hover {
     @media (any-pointer: fine) {
-      border-color: $col-ruby;
-      background: $col-bone;
+      background-color: $col-bone;
       font-weight: 500;
     }
   }
