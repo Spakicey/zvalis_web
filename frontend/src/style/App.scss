@@ -109,12 +109,9 @@ body, #root {
     }
     .avail {
       background-color: black;
-
     }
     .contact {
-      //background-color: black;
-      text-decoration: none;
-
+      visibility: visible;
     }
 
     // Small screens
@@ -152,13 +149,13 @@ body, #root {
   }
 }
 
-.home {
+.hero {
   visibility: visible;
   .container {
     @include flexbox();
-    height: 79vh;
+    height: 80vh;
     min-height: 100px;
-    overflow: hidden;
+    overflow: auto;
     background-image: $bg2-img;
     background-position: top;
     background-size: cover;
@@ -166,16 +163,54 @@ body, #root {
     align-items: center;
     justify-content: space-around;
 
-    .text {
-      visibility: visible;
-      background-color: black;
-      color: $col-ruby;
-      font-style: italic;
+    .home {
+      .text {
+        background: black;
+        background-color: black;
+        color: $col-ruby;
+        font-style: italic;
+      }
+    }
+
+    .project {
+      flex-direction: column;
+      .card {
+        color: $col-ruby;
+        font-style: italic;
+
+        .image {
+          height: 32vh;
+          cursor: pointer;
+        }
+
+        .title {
+          background-color: black;
+        }
+
+        .text {
+          background-color: black;
+        }
+      }
+    }
+
+    .credit {
+      &__text {
+        visibility: visible;
+        background-color: black;
+        color: $col-ruby;
+        font-style: italic;
+
+        .link {
+          @extend %links;
+        }
+      }
     }
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 51vh;
+      height: 50vh;
+      justify-content: normal;
+      flex-direction: column;
     }
   }
 }
@@ -192,7 +227,7 @@ body, #root {
       background-color: black;
     }
     .socials-center {
-
+      visibility: visible;
     }
     .credit {
       background-color: black;

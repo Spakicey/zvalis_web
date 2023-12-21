@@ -20,20 +20,38 @@ const Work = () => {
   }, [])
 
   return(
-    <div className="container-fluid side-container">
-      <div className="row side-row">
-      {projects.map((stu) =>
-        <div key={ stu.id } className="col-md-4">
-          <div className="card mb-2">
-            <img className="card-img-top" src={img_partial.concat(stu.image)}
-            onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }} alt="Project Image"/>
-            <div className="card-body">
-              <h5 className="card-title">{stu.title}</h5>
-              <p className="card-text">{stu.description}</p>
-              <Button variant="primary" onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }}>Read More</Button>{' '}
+    <div className="hero">
+      <div className="container">
+        {projects.map((stu) =>
+          <div className='project' key={ stu.id }>
+            <div className='card'>
+              <img className="image" src={img_partial.concat(stu.image)}
+              onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }} alt="ZCV/2K24"/>
+              <div className="body">
+                <h2 className="title">{stu.title}</h2>
+                <p className="text">{stu.description}</p>
+                <p className="c-button">
+                  <span className="c-link">
+                    <span className="c-link__inner">
+                      <span>
+                        <a
+                          onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }}
+                        >READ MORE
+                        </a>
+                      </span>
+                      <span className="c-link__animated">
+                        <a
+                          onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }}
+                        >READ MORE
+                        </a>
+                      </span>
+                    </span>
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>)}
+        )}
       </div>
     </div>
    );
