@@ -19,7 +19,7 @@ body, #root {
   width: 100%;
   height: 100%;
   padding: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .main {
@@ -153,6 +153,7 @@ body, #root {
   visibility: visible;
   .container {
     @include flexbox();
+    padding: .5rem;
     height: 80vh;
     min-height: 100px;
     overflow: auto;
@@ -162,6 +163,7 @@ body, #root {
     background-repeat: no-repeat;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 
     .home {
       .text {
@@ -172,14 +174,22 @@ body, #root {
       }
     }
 
+    .info {
+      .text {
+        background: black;
+        background-color: black;
+        color: $col-ruby;
+        font-style: italic;
+      }
+    }
+
     .project {
-      flex-direction: column;
       .card {
         color: $col-ruby;
         font-style: italic;
 
         .image {
-          height: 32vh;
+          height: 30vh;
           cursor: pointer;
         }
 
@@ -208,9 +218,10 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 50vh;
+      height: 49vh;
       justify-content: normal;
       flex-direction: column;
+      flex-wrap: nowrap;
     }
   }
 }
