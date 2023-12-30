@@ -7,3 +7,10 @@ $col-teal: #119B8E;
 $col-sapphire: #0000FF;
 $col-yellow: #FFFF00;
 $col-bone: #E3dAC9;
+
+%red-on-black-text {
+  background: black;
+  background-color: black;
+  color: $col-ruby;
+  font-style: italic;
+}

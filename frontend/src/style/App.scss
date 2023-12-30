@@ -167,26 +167,20 @@ body, #root {
 
     .home {
       .text {
-        background: black;
-        background-color: black;
-        color: $col-ruby;
-        font-style: italic;
+        @extend %red-on-black-text;
       }
     }
 
     .info {
       .text {
-        background: black;
-        background-color: black;
-        color: $col-ruby;
-        font-style: italic;
+        @extend %red-on-black-text;
       }
     }
 
     .project {
       .card {
-        color: $col-ruby;
-        font-style: italic;
+        @extend %red-on-black-text;
+        margin-bottom: .5rem;
 
         .image {
           height: 30vh;
@@ -194,13 +188,45 @@ body, #root {
         }
 
         .title {
-          background-color: black;
+          //background-color: black;
         }
 
         .text {
-          background-color: black;
+          //background-color: black;
         }
       }
+    }
+
+    .detail {
+      @include flexbox();
+
+      .image {
+        height: 70vh;
+      }
+      .title {
+        @extend %red-on-black-text;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        margin-right: 0;
+      }
+      .body {
+        @extend %red-on-black-text;
+      }
+    }
+    // Small screens
+    @media all and (max-width: 900px) {
+      .detail {
+        flex-direction: column;
+        .image {
+          height: 30vh;
+        }
+        .title {
+          @extend %red-on-black-text;
+          writing-mode: horizontal-tb;
+          margin-bottom: 0;
+        }
+      }
+
     }
 
     .credit {
