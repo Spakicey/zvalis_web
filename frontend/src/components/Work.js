@@ -29,7 +29,7 @@ const Work = () => {
               onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }} alt="ZCV/2K24"/>
               <div className="body">
                 <h2 className="title">{stu.title}</h2>
-                <p className="text">{stu.description}</p>
+                <p className="text">{stu.technology}</p>
                 <p className="c-button">
                   <span className="c-link">
                     <span className="c-link__inner">

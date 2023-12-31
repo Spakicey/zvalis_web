@@ -181,8 +181,11 @@ body, #root {
       .card {
         @extend %red-on-black-text;
         margin-bottom: .5rem;
+        max-height: 50vh;
 
         .image {
+          aspect-ratio: 4/3;
+          background-size: contain;
           height: 30vh;
           cursor: pointer;
         }
@@ -193,6 +196,7 @@ body, #root {
 
         .text {
           //background-color: black;
+          //font-size: larger;
         }
       }
     }
@@ -201,6 +205,7 @@ body, #root {
       @include flexbox();
 
       .image {
+        //scale: 50%;
         height: 70vh;
       }
       .title {
@@ -211,14 +216,24 @@ body, #root {
       }
       .body {
         @extend %red-on-black-text;
+        margin: auto;
+
       }
     }
     // Small screens
     @media all and (max-width: 900px) {
+      .project {
+        .card {
+          .image {
+            //height: 30vh;
+          }
+        }
+      }
+
       .detail {
         flex-direction: column;
         .image {
-          height: 30vh;
+          height: fit-content;
         }
         .title {
           @extend %red-on-black-text;
