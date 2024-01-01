@@ -109,7 +109,7 @@ const Header = () => {
         </Suspense>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <CameraPositionLogger event='mousedown' />
+        {/*<CameraPositionLogger event='mousedown' />*/}
         <Preload all />
         <OrbitControls
               enabled={false}

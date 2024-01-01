@@ -30,6 +30,7 @@ body, #root {
   min-height: 100vh;
   visibility: visible;
   text-align: center;
+  z-index: 2;
 }
 
 .main > * {
@@ -164,6 +165,14 @@ body, #root {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+
+    img {
+      position: absolute;
+      top: 500px;
+      left: 400px;
+      transform: translate(-50%, -50%) scale(0.1);
+      z-index: 1;
+    }
 
     .home {
       .text {

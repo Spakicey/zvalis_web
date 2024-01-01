@@ -1,15 +1,11 @@
 // Home.js
+import ImageAddService from "../services/ImageAddService";
 
 const Home = () => {
 
   return (
     <div className='hero'>
-      <section className='container'>
-        <div className="home">
-          <div className='text'>
-            <h1>"HOME PAGE"</h1>
-          </div>
-        </div>
+      <section className='container' id='image-add'>
       </section>
     </div>
   );
