@@ -11,7 +11,7 @@ import {
   PresentationControls,
   Environment, } from '@react-three/drei';
 import { useControls, Leva } from 'leva';
-import CameraPositionLogger from './three/helpers/CameraPositionLogger';
+//import CameraPositionLogger from './three/helpers/CameraPositionLogger';
 import Text from './three/DreiText2';
 import HDR from '../static/textures/venice_sunset_1k.hdr';
 

@@ -1,4 +1,5 @@
 // ImageAddService.js
+import React, { useRef } from 'react';
 import img1 from '../static/CIMG0894.JPG';
 import img2 from '../static/CIMG1165.JPG';
 import img3 from '../static/fire.gif';
@@ -8,38 +9,64 @@ const images = [img3, img1, img2, img4];
 
 let i = 0;
 
-function placeImage (x, y) {
-  const nextImage = images[i];
+const ImagePlacer = () => {
+  const containerRef = useRef(null);
+  const placedImagesContainer = document.createElement('div');
+  placedImagesContainer.className = 'placed-images-container';
 
-  const img = document.createElement('img');
+  const placeImage = (pageX, pageY) => {
+    const container = containerRef.current;
 
-  img.setAttribute('src', nextImage);
-  img.style.left = x + 'px';
-  img.style.top = y + 'px';
+    if (!container) {
+      return;
+    }
 
-  document.getElementById('image-add').appendChild(img);
+    const containerRect = container.getBoundingClientRect();
 
-  i = i + 1;
+    const nextImage = images[i];
 
-  if (i >= images.length) {
-    i = 0;
+    container.appendChild(placedImagesContainer);
+
+    const img = document.createElement('img');
+    img.setAttribute('src', nextImage);
+    img.className = 'placed-image';
+
+    // Calculate the position of the image relative to the container
+    const imgLeft = Math.max(0, pageX - containerRect.left);
+    const imgTop = Math.max(0, pageY - containerRect.top);
+
+    img.style.left = imgLeft + 'px';
+    img.style.top = imgTop + 'px';
+
+    placedImagesContainer.appendChild(img);
+
+    i = i + 1;
+
+    if (i >= images.length) {
+      i = 0;
+    }
   }
+
+  const handleMouseDown = (event) => {
+    event.preventDefault();
+    placeImage(event.pageX, event.pageY);
+  };
+
+  const handleTouchEnd = (event) => {
+    event.preventDefault();
+    const touch = event.changedTouches[0];
+    placeImage(touch.pageX, touch.pageY);
+  };
+
+  return (
+    <div
+      className='container'
+      ref={containerRef}
+      onMouseDown={handleMouseDown}
+      onTouchEnd={handleTouchEnd}
+      o
+    />
+  );
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
-  document.addEventListener('mousedown', function(event) {
-    event.preventDefault();
-    placeImage(event.pageX, event.pageY);
-    console.log('Click image added');
-  })
-})
-
-document.addEventListener('DOMContentLoaded', function(event) {
-  document.addEventListener('touchend', function(event) {
-    event.preventDefault();
-    placeImage(event.pageX, event.pageY);
-    console.log('Touch image added');
-  })
-})
-
-export default placeImage;
+export default ImagePlacer;

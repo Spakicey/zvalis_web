@@ -1,12 +1,11 @@
 // Home.js
-import ImageAddService from "../services/ImageAddService";
+import ImagePlacer from "../services/ImageAddService";
 
 const Home = () => {
 
   return (
     <div className='hero'>
-      <section className='container' id='image-add'>
-      </section>
+      <ImagePlacer />
     </div>
   );
 };

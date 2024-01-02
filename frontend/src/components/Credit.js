@@ -20,6 +20,8 @@ const Credit = () => {
           <a className="link" href="https://www.github.com/akella">Yuri Artiukh AKA "Akella" [3D Text Code]</a>
           <br />
           <a className="link" href="https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ">ABSURD 3D YouTube Channel [Camera Position Logger Code]</a>
+          <br />
+          <a className="link" href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript">Rik Lomas & Yokoland [Image Add Service Code]</a>
         </div>
       </section>
     </div>
