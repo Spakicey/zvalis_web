@@ -1,11 +1,12 @@
 // Home.js
-import ImagePlacer from "../services/ImageAddService";
+//import ImagePlacer from "../services/ImageAddService";
+import DrawingCanvas from "../services/DrawingCanvas";
 
 const Home = () => {
 
   return (
     <div className='hero'>
-      <ImagePlacer />
+      <DrawingCanvas />
     </div>
   );
 };
