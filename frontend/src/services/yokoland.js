@@ -7,105 +7,86 @@ import img2 from '../static/ezgif.gif';
 import img3 from '../static/CIMG1165.JPG';
 import img4 from '../static/giphy.gif';
 import img5 from '../static/redline.gif';
+import img6 from '../static/fire2.gif';
 
 const Yokoland = () => {
   const canvasRef = useRef(null);
-  // gif patch canvas
-  const tempCanvas = document.createElement('canvas');
-  const tempCtx = tempCanvas.getContext('2d');
-  // full gif canvas
-  const gifCanvas = document.createElement('canvas');
-  const gifCtx = gifCanvas.getContext('2d');
+  const framesRef = useRef(null);
+  const delayRef = useRef(null);
+  const [isDrawing, setIsDrawing] = useState(false);
   let gif;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
+    const gifCanvas = document.createElement('canvas');
+    const gifCtx = canvas.getContext('2d');
 
-    const loadGIF = () => {
-      let oReq = new XMLHttpRequest();
-      oReq.open('GET', img1, true);
-      oReq.responseType = 'arraybuffer';
+    let oReq = new XMLHttpRequest();
+    oReq.open('GET', img5, true);
+    oReq.responseType = 'arraybuffer';
 
-      oReq.onload = () => {
-        let arrayBuffer = oReq.response; // Note: not oReq.responseText
-        if (arrayBuffer) {
-          gif = parseGIF(arrayBuffer);
-          let frames = decompressFrames(gif, true);
-          // render the gif
-          renderGIF(frames);
-        }
-      };
-      oReq.send(null);
-    };
-
-    let playing = false;
-    let loadedFrames;
-    let frameIndex;
-
-    const playpause = () => {
-      playing =! playing
-      if (playing) {
-        renderFrame();
+    oReq.onload = () => {
+      let arrayBuffer = oReq.response; // Note: not oReq.responseText
+      if (arrayBuffer) {
+        gif = parseGIF(arrayBuffer);
+        let frames = decompressFrames(gif, true);
+        framesRef.current = frames;
       }
     };
+    oReq.send(null);
 
-    const renderGIF = (frames) => {
-      loadedFrames = frames;
-      frameIndex = 0;
-
-      canvas.width = frames[0].dims.width;
-      canvas.height = frames[0].dims.height;
-
-      gifCanvas.width = canvas.width;
-      gifCanvas.height = canvas.height;
-
-      if (!playing) {
-        playpause();
-      }
+    const startDrawing = (e) => {
+      const { offsetX, offsetY } = e;
+      renderFrame(offsetX, offsetY);
+      setIsDrawing(true);
+      canvas.style.cursor = 'none'; // Hide cursor on mousedown
     };
 
-    let frameImageData;
+    const draw = (e) => {
+      if (!isDrawing) return;
 
-    const drawPatch = (frame) => {
+      const { offsetX, offsetY } = e;
+      //const gifDelay = framesRef.current[0].delay*100;
+      //console.log(gifDelay);
+      //setTimeout(renderFrame(offsetX, offsetY), delayRef.current);
+      renderFrame(offsetX, offsetY);
+    };
+
+    const stopDrawing = () => {
+      setIsDrawing(false);
+      canvas.style.cursor = 'auto'; // Show cursor on mouseup
+    };
+
+    const drawPatch = (frame, x, y) => {
+      let frameImageData;
       let dims = frame.dims;
 
-      if (
-        !frameImageData ||
-        dims.width != frameImageData.width ||
-        dims.height != frameImageData.height
-      ) {
-        tempCanvas.width = dims.width;
-        tempCanvas.height = dims.height;
-        frameImageData = tempCtx.createImageData(dims.width, dims.height);
-      }
-
-      // set the patch data as an override
+      frameImageData = gifCtx.createImageData(dims.width, dims.height);
       frameImageData.data.set(frame.patch);
 
-      // draw the patch back over the canvas
-      tempCtx.putImageData(frameImageData, 0, 0);
+      const imgX = x - dims.width / 2;
+      const imgY = y - dims.height / 2;
 
-      //gifCtx.drawImage(tempCanvas, dims.left, dims.top)
-      context.drawImage(tempCanvas, dims.left, dims.top);
+      gifCtx.putImageData(frameImageData, imgX, imgY);
+
+      // Draw the gifCanvas onto the main canvas
+      context.drawImage(gifCanvas, x - gifCanvas.width / 2, y - gifCanvas.height / 2);
     };
 
-    let needsDisposal = false;
+    let frameIndex = 0;
 
-    const renderFrame = () => {
+    const renderFrame = (x, y) => {
+      let loadedFrames = framesRef.current;
+      let start = new Date().getTime();
+
       // get the frame
       let frame = loadedFrames[frameIndex];
 
-      let start = new Date().getTime();
-
-      if (needsDisposal) {
-        gifCtx.clearRect(0, 0, canvas.width, canvas.height);
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        needsDisposal = false;
-      }
+      context.clearRect(0, 0, canvas.width, canvas.height);
 
       // draw the patch
-      drawPatch(frame);
+      drawPatch(frame, x, y);
 
       // update the frame index
       frameIndex++;
@@ -113,34 +94,44 @@ const Yokoland = () => {
         frameIndex = 0;
       }
 
-      if (frame.disposalType === 2) {
-        needsDisposal = true;
-      }
-
       let end = new Date().getTime();
       let diff = end - start;
+      let gifDelay = Math.max(0, Math.floor(frame.delay - diff));
+      delayRef.current = gifDelay;
+      console.log(delayRef.current);
 
-      if (playing) {
-        // delay the next gif frame
+      // delay the next gif frame
+      {/*
+
+      if (!isDrawing) {
         setTimeout(function() {
-          requestAnimationFrame(renderFrame)
-          //renderFrame();
-        }, Math.max(0, Math.floor(frame.delay - diff)))
+          renderFrame(x, y);
+          //drawPatch(frame, x, y);
+        }, gifDelay)
       }
+
+    */}
     };
 
-    canvas.addEventListener('click', loadGIF);
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
 
     return () => {
-      canvas.removeEventListener('click', loadGIF);
+      canvas.removeEventListener('mousedown', startDrawing);
+      canvas.removeEventListener('mousemove', draw);
+      canvas.removeEventListener('mouseup', stopDrawing);
+      canvas.removeEventListener('mouseout', stopDrawing);
     };
-  });
+  }, [isDrawing]);
 
   return (
     <canvas
       ref={canvasRef}
-      width={800} // set your desired canvas width
-      height={600} // set your desired canvas height
+      //className='gif-canvas'
+      width={1200} // set your desired canvas width
+      height={700} // set your desired canvas height
       style={{ border: '1px solid #000', cursor: 'auto' }}
     >
     </canvas>
