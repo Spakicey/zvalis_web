@@ -5,7 +5,7 @@ const Home = () => {
 
   return (
     <div className='hero'>
-      <section className="container">
+      <section className='container'>
         <Yokoland />
       </section>
     </div>

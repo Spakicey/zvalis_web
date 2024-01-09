@@ -1,7 +1,11 @@
 // yokoland.js
 // Based heavily on the gifuct.js github demo
+
 // Current bug: 2 Gifs back-to-back if you play one quickly
 // -- and unclick, the first frame of the next gif will draw
+
+//TODO: Find a way for transparent gifs to not overwrite previous
+// -- drawn images from the transparent layer
 import React, { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
 import img1 from '../static/CIMG0894.JPG';
@@ -94,8 +98,7 @@ const Yokoland = () => {
       setIsDrawing(false);
       playing.current = false;
       canvas.style.cursor = 'auto';
-      setTimeout(setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length), 300);
-      //setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length);
       clearTimeout(cursorStopTimeout);
     };
 
@@ -122,7 +125,7 @@ const Yokoland = () => {
       }
     };
 
-    const drawPatch = (frame) => {
+    const drawPatch = () => {
       let frameImageData;
       //let dims = frame.dims;
       let dims = framesRef.current[frameIndex].dims;
@@ -169,15 +172,23 @@ const Yokoland = () => {
       }
     };
 
-    // Add touch event listeners
+    const handleContextMenu = e => {
+      e.preventDefault();
+    };
+
+    // touch event listeners
     canvas.addEventListener('touchstart', startDrawing);
     canvas.addEventListener('touchmove', draw);
     canvas.addEventListener('touchend', stopDrawing);
 
+    // mouse event listeners
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
+
+    // disable right click event listener
+    canvas.addEventListener('contextmenu', handleContextMenu);
 
     return () => {
       canvas.removeEventListener('mousedown', startDrawing);
@@ -189,6 +200,8 @@ const Yokoland = () => {
        canvas.removeEventListener('touchstart', startDrawing);
        canvas.removeEventListener('touchmove', draw);
        canvas.removeEventListener('touchend', stopDrawing);
+
+       canvas.removeEventListener('contextmenu', handleContextMenu);
       clearTimeout(cursorStopTimeout);
     };
   }, [isDrawing, cursorImages, currentImageIndex]);
@@ -196,12 +209,10 @@ const Yokoland = () => {
   return (
     <canvas
       ref={canvasRef}
-      //className='gif-canvas'
       width={1200}
       height={700}
       style={{ border: '1px solid #000', cursor: 'auto' }}
-    >
-    </canvas>
+    />
   );
 };
 
