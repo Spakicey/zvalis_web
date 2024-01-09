@@ -3,8 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
 //import img1 from '../static/based-redline.gif';
 //import img4 from '../static/giphy.gif';
-//import img5 from '../static/redline.gif';
-//import img7 from '../static/barbed-wire.gif';
+import img5 from '../static/redline.gif';
+import img7 from '../static/barbed-wire.gif';
 
 const Yokoland = () => {
   const canvasRef = useRef(null);
@@ -37,10 +37,10 @@ const Yokoland = () => {
     oReq.send(null);
 
     const startDrawing = (e) => {
-      const { offsetX, offsetY } = e;
+      const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
-      renderFrame(mouseX.current, mouseY.current);
+      playPause();
       setIsDrawing(true);
       canvas.style.cursor = 'none';
       clearTimeout(cursorStopTimeout);
@@ -49,7 +49,7 @@ const Yokoland = () => {
     const draw = (e) => {
       if (!isDrawing) return;
 
-      const { offsetX, offsetY } = e;
+      const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
       playPause();
@@ -66,6 +66,22 @@ const Yokoland = () => {
       playing.current = false;
       canvas.style.cursor = 'auto';
       clearTimeout(cursorStopTimeout);
+    };
+
+    const getCoordinates = (e) => {
+      // Check if it's a touch event
+      if (e.touches && e.touches.length) {
+        return {
+          offsetX: e.touches[0].clientX - canvas.getBoundingClientRect().left,
+          offsetY: e.touches[0].clientY - canvas.getBoundingClientRect().top,
+        };
+      }
+
+      // It's a mouse event
+      return {
+        offsetX: e.clientX - canvas.getBoundingClientRect().left,
+        offsetY: e.clientY - canvas.getBoundingClientRect().top,
+      };
     };
 
     const playPause = () => {
@@ -125,6 +141,11 @@ const Yokoland = () => {
       }
     };
 
+    // Add touch event listeners
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchend', stopDrawing);
+
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
@@ -135,6 +156,11 @@ const Yokoland = () => {
       canvas.removeEventListener('mousemove', draw);
       canvas.removeEventListener('mouseup', stopDrawing);
       canvas.removeEventListener('mouseout', stopDrawing);
+
+       // Remove touch event listeners
+       canvas.removeEventListener('touchstart', startDrawing);
+       canvas.removeEventListener('touchmove', draw);
+       canvas.removeEventListener('touchend', stopDrawing);
       clearTimeout(cursorStopTimeout);
     };
   }, [isDrawing]);
