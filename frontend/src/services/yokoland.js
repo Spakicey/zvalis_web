@@ -1,10 +1,15 @@
 // yokoland.js
+// Based heavily on the gifuct.js github demo
+// Current bug: 2 Gifs back-to-back if you play one quickly
+// -- and unclick, the first frame of the next gif will draw
 import React, { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
-//import img1 from '../static/based-redline.gif';
-//import img4 from '../static/giphy.gif';
+import img1 from '../static/CIMG0894.JPG';
+import img2 from '../static/CIMG1165.JPG';
+import img3 from '../static/based-redline.gif';
+import img4 from '../static/giphy.gif';
 import img5 from '../static/redline.gif';
-import img7 from '../static/barbed-wire.gif';
+import img6 from '../static/barbed-wire.gif';
 
 const Yokoland = () => {
   const canvasRef = useRef(null);
@@ -13,6 +18,8 @@ const Yokoland = () => {
   const mouseY = useRef(null);
   const playing = useRef(false);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [cursorImages, setCursorImages] = useState([img1, img3, img2, img4, img1, img6]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   let gif;
 
   useEffect(() => {
@@ -22,25 +29,42 @@ const Yokoland = () => {
     const gifCtx = canvas.getContext('2d');
     let cursorStopTimeout;
 
-    let oReq = new XMLHttpRequest();
-    oReq.open('GET', img7, true);
-    oReq.responseType = 'arraybuffer';
+    const drawStillImage = () => {
+      const imagePath = cursorImages[currentImageIndex];
 
-    oReq.onload = () => {
-      let arrayBuffer = oReq.response; // Note: not oReq.responseText
-      if (arrayBuffer) {
-        gif = parseGIF(arrayBuffer);
-        let frames = decompressFrames(gif, true);
-        framesRef.current = frames;
-      }
+      const img = new Image();
+      img.src = imagePath;
+      const imgWidth = img.width/4;
+      const imgHeight = img.height/4;
+      context.drawImage(img, (mouseX.current - imgWidth / 2), (mouseY.current - imgHeight / 2), imgWidth, imgHeight);
     };
-    oReq.send(null);
+
+    if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', cursorImages[currentImageIndex], true);
+      oReq.responseType = 'arraybuffer';
+
+      oReq.onload = () => {
+        let arrayBuffer = oReq.response; // Note: not oReq.responseText
+        if (arrayBuffer) {
+          gif = parseGIF(arrayBuffer);
+          let frames = decompressFrames(gif, true);
+          framesRef.current = frames;
+        }
+      };
+      oReq.send(null);
+    }
 
     const startDrawing = (e) => {
       const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
-      playPause();
+      if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
+        renderFrame();
+      }
+      else {
+        drawStillImage();
+      }
       setIsDrawing(true);
       canvas.style.cursor = 'none';
       clearTimeout(cursorStopTimeout);
@@ -52,19 +76,26 @@ const Yokoland = () => {
       const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
-      playPause();
-
-      clearTimeout(cursorStopTimeout);
-      cursorStopTimeout = setTimeout(() => {
+      if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
         playPause();
-        playing.current = false;
-      }, 250);
+
+        clearTimeout(cursorStopTimeout);
+        cursorStopTimeout = setTimeout(() => {
+          playPause();
+          playing.current = false;
+        }, 250);
+      }
+      else {
+        drawStillImage();
+      }
     };
 
     const stopDrawing = () => {
       setIsDrawing(false);
       playing.current = false;
       canvas.style.cursor = 'auto';
+      setTimeout(setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length), 300);
+      //setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length);
       clearTimeout(cursorStopTimeout);
     };
 
@@ -93,12 +124,13 @@ const Yokoland = () => {
 
     const drawPatch = (frame) => {
       let frameImageData;
-      let dims = frame.dims;
+      //let dims = frame.dims;
+      let dims = framesRef.current[frameIndex].dims;
       let x = mouseX.current;
       let y = mouseY.current;
 
       frameImageData = gifCtx.createImageData(dims.width, dims.height);
-      frameImageData.data.set(frame.patch);
+      frameImageData.data.set(framesRef.current[frameIndex].patch);
 
       const imgX = x - dims.width / 2;
       const imgY = y - dims.height / 2;
@@ -112,26 +144,22 @@ const Yokoland = () => {
     let frameIndex = 0;
 
     const renderFrame = () => {
-      let loadedFrames = framesRef.current;
       let start = new Date().getTime();
 
-      // get the frame
-      let frame = loadedFrames[frameIndex];
-
-      context.clearRect(0, 0, canvas.width, canvas.height);
+      //context.clearRect(0, 0, canvas.width, canvas.height);
 
       // draw the patch
-      drawPatch(frame);
+      drawPatch();
 
       // update the frame index
       frameIndex++;
-      if (frameIndex >= loadedFrames.length) {
+      if (frameIndex >= framesRef.current.length) {
         frameIndex = 0;
       }
 
       let end = new Date().getTime();
       let diff = end - start;
-      let gifDelay = Math.max(0, Math.floor(frame.delay - diff));
+      let gifDelay = Math.max(0, Math.floor(framesRef.current[frameIndex].delay - diff));
 
       if (playing.current) {
         setTimeout(function() {
@@ -163,7 +191,7 @@ const Yokoland = () => {
        canvas.removeEventListener('touchend', stopDrawing);
       clearTimeout(cursorStopTimeout);
     };
-  }, [isDrawing]);
+  }, [isDrawing, cursorImages, currentImageIndex]);
 
   return (
     <canvas

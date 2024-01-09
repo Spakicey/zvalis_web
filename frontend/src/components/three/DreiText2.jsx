@@ -1,12 +1,12 @@
 import * as THREE from "three";
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import React, { useRef, useMemo, useLayoutEffect } from "react";
-import { RGBELoader } from 'three-stdlib';
-import { useLoader, useFrame } from "@react-three/fiber";
+//import { RGBELoader } from 'three-stdlib';
+import { useFrame } from "@react-three/fiber";
 import { MeshTransmissionMaterial } from "@react-three/drei";
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import myFont from '../../static/fonts/Gotisch.json';
-import matcap7 from '../../static/textures/venice_sunset_1k.hdr';
+//import matcap7 from '../../static/textures/venice_sunset_1k.hdr';
 
 const SEGMENTS = 12;
 
@@ -45,7 +45,6 @@ export default function Text({ children, vAlign = "center", hAlign = "center", s
         ref={refMaterial}
         attach="material"
         metalness={.75}
-        //background={texture}
         reflectivity={0.5}
         roughness={0}
         transmission={0.6}

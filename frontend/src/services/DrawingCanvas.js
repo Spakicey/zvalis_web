@@ -21,8 +21,9 @@ const DrawingCanvas = () => {
 
       const img = new Image();
       img.src = imagePath;
-      canvas.style.cursor = img;
-      context.drawImage(canvas.style.cursor, x - img.width / 2, y - img.height / 2, img.width, img.height);
+      const imgWidth = img.width/4;
+      const imgHeight = img.height/4;
+      context.drawImage(img, x - imgWidth / 2, y - imgHeight / 2, imgWidth, imgHeight);
     };
 
     const startDrawing = (e) => {

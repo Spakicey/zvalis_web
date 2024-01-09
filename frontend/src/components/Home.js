@@ -1,6 +1,5 @@
 // Home.js
 import Yokoland from '../services/yokoland';
-import DrawingCanvas from '../services/DrawingCanvas';
 
 const Home = () => {
 

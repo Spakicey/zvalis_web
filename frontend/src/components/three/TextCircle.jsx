@@ -1,3 +1,4 @@
+// ORIGINAL AUTHOR: Akella
 import * as THREE from "three";
 import { useFrame, useLoader } from '@react-three/fiber'
 import React, { useRef, useEffect, useLayoutEffect } from 'react'
