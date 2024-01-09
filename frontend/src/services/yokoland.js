@@ -1,18 +1,17 @@
 // yokoland.js
 import React, { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
-import img0 from '../static/CIMG0894.JPG';
-import img1 from '../static/based-redline.gif';
-import img2 from '../static/ezgif.gif';
-import img3 from '../static/CIMG1165.JPG';
-import img4 from '../static/giphy.gif';
-import img5 from '../static/redline.gif';
-import img6 from '../static/fire2.gif';
+//import img1 from '../static/based-redline.gif';
+//import img4 from '../static/giphy.gif';
+//import img5 from '../static/redline.gif';
+//import img7 from '../static/barbed-wire.gif';
 
 const Yokoland = () => {
   const canvasRef = useRef(null);
   const framesRef = useRef(null);
-  const delayRef = useRef(null);
+  const mouseX = useRef(null);
+  const mouseY = useRef(null);
+  const playing = useRef(false);
   const [isDrawing, setIsDrawing] = useState(false);
   let gif;
 
@@ -21,9 +20,10 @@ const Yokoland = () => {
     const context = canvas.getContext('2d');
     const gifCanvas = document.createElement('canvas');
     const gifCtx = canvas.getContext('2d');
+    let cursorStopTimeout;
 
     let oReq = new XMLHttpRequest();
-    oReq.open('GET', img5, true);
+    oReq.open('GET', img7, true);
     oReq.responseType = 'arraybuffer';
 
     oReq.onload = () => {
@@ -38,29 +38,48 @@ const Yokoland = () => {
 
     const startDrawing = (e) => {
       const { offsetX, offsetY } = e;
-      renderFrame(offsetX, offsetY);
+      mouseX.current = offsetX;
+      mouseY.current = offsetY;
+      renderFrame(mouseX.current, mouseY.current);
       setIsDrawing(true);
-      canvas.style.cursor = 'none'; // Hide cursor on mousedown
+      canvas.style.cursor = 'none';
+      clearTimeout(cursorStopTimeout);
     };
 
     const draw = (e) => {
       if (!isDrawing) return;
 
       const { offsetX, offsetY } = e;
-      //const gifDelay = framesRef.current[0].delay*100;
-      //console.log(gifDelay);
-      //setTimeout(renderFrame(offsetX, offsetY), delayRef.current);
-      renderFrame(offsetX, offsetY);
+      mouseX.current = offsetX;
+      mouseY.current = offsetY;
+      playPause();
+
+      clearTimeout(cursorStopTimeout);
+      cursorStopTimeout = setTimeout(() => {
+        playPause();
+        playing.current = false;
+      }, 250);
     };
 
     const stopDrawing = () => {
       setIsDrawing(false);
-      canvas.style.cursor = 'auto'; // Show cursor on mouseup
+      playing.current = false;
+      canvas.style.cursor = 'auto';
+      clearTimeout(cursorStopTimeout);
     };
 
-    const drawPatch = (frame, x, y) => {
+    const playPause = () => {
+      if (!playing.current) {
+        playing.current = true;
+        renderFrame();
+      }
+    };
+
+    const drawPatch = (frame) => {
       let frameImageData;
       let dims = frame.dims;
+      let x = mouseX.current;
+      let y = mouseY.current;
 
       frameImageData = gifCtx.createImageData(dims.width, dims.height);
       frameImageData.data.set(frame.patch);
@@ -76,7 +95,7 @@ const Yokoland = () => {
 
     let frameIndex = 0;
 
-    const renderFrame = (x, y) => {
+    const renderFrame = () => {
       let loadedFrames = framesRef.current;
       let start = new Date().getTime();
 
@@ -86,7 +105,7 @@ const Yokoland = () => {
       context.clearRect(0, 0, canvas.width, canvas.height);
 
       // draw the patch
-      drawPatch(frame, x, y);
+      drawPatch(frame);
 
       // update the frame index
       frameIndex++;
@@ -97,20 +116,13 @@ const Yokoland = () => {
       let end = new Date().getTime();
       let diff = end - start;
       let gifDelay = Math.max(0, Math.floor(frame.delay - diff));
-      delayRef.current = gifDelay;
-      console.log(delayRef.current);
 
-      // delay the next gif frame
-      {/*
-
-      if (!isDrawing) {
+      if (playing.current) {
         setTimeout(function() {
-          renderFrame(x, y);
-          //drawPatch(frame, x, y);
+          requestAnimationFrame(renderFrame);
+          //renderFrame();
         }, gifDelay)
       }
-
-    */}
     };
 
     canvas.addEventListener('mousedown', startDrawing);
@@ -123,6 +135,7 @@ const Yokoland = () => {
       canvas.removeEventListener('mousemove', draw);
       canvas.removeEventListener('mouseup', stopDrawing);
       canvas.removeEventListener('mouseout', stopDrawing);
+      clearTimeout(cursorStopTimeout);
     };
   }, [isDrawing]);
 
@@ -130,8 +143,8 @@ const Yokoland = () => {
     <canvas
       ref={canvasRef}
       //className='gif-canvas'
-      width={1200} // set your desired canvas width
-      height={700} // set your desired canvas height
+      width={1200}
+      height={700}
       style={{ border: '1px solid #000', cursor: 'auto' }}
     >
     </canvas>

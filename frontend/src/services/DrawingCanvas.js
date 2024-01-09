@@ -21,19 +21,15 @@ const DrawingCanvas = () => {
 
       const img = new Image();
       img.src = imagePath;
-
-      img.onload = () => {
-        const imgWidth = 300; // Set the width and height as needed
-        const imgHeight = 200;
-        context.drawImage(img, x - imgWidth / 2, y - imgHeight / 2, imgWidth, imgHeight);
-      };
+      canvas.style.cursor = img;
+      context.drawImage(canvas.style.cursor, x - img.width / 2, y - img.height / 2, img.width, img.height);
     };
 
     const startDrawing = (e) => {
       const { offsetX, offsetY } = e;
       drawCursor(offsetX, offsetY);
       setIsDrawing(true);
-      canvas.style.cursor = 'none'; // Hide cursor on mousedown
+      //canvas.style.cursor = 'none'; // Hide cursor on mousedown
     };
 
     const draw = (e) => {
