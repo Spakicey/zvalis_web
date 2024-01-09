@@ -15,7 +15,9 @@ import img4 from '../static/giphy.gif';
 import img5 from '../static/redline.gif';
 import img6 from '../static/barbed-wire.gif';
 
-const Yokoland = () => {
+const Yokoland = ({ containerDimensions }) => {
+  const containerWidth = containerDimensions.width;
+  const containerHeight = containerDimensions.height;
   const canvasRef = useRef(null);
   const framesRef = useRef(null);
   const mouseX = useRef(null);
@@ -127,7 +129,6 @@ const Yokoland = () => {
 
     const drawPatch = () => {
       let frameImageData;
-      //let dims = frame.dims;
       let dims = framesRef.current[frameIndex].dims;
       let x = mouseX.current;
       let y = mouseY.current;
@@ -141,7 +142,7 @@ const Yokoland = () => {
       gifCtx.putImageData(frameImageData, imgX, imgY);
 
       // Draw the gifCanvas onto the main canvas
-      context.drawImage(gifCanvas, x - gifCanvas.width / 2, y - gifCanvas.height / 2);
+      context.drawImage(gifCanvas, (x - gifCanvas.width / 2), (y - gifCanvas.height / 2));
     };
 
     let frameIndex = 0;
@@ -209,9 +210,9 @@ const Yokoland = () => {
   return (
     <canvas
       ref={canvasRef}
-      width={1200}
-      height={700}
-      style={{ border: '1px solid #000', cursor: 'auto' }}
+      width={containerWidth-1}
+      height={containerHeight-1}
+      style={{ border: '1px solid #9B111E', cursor: 'auto', overflow: 'hidden' }}
     />
   );
 };
