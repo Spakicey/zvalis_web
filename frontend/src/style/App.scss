@@ -183,6 +183,7 @@ body, #root {
     .project {
       .card {
         @extend %red-on-black-text;
+        margin-top: .5rem;
         margin-bottom: .5rem;
         max-height: 50vh;
 
@@ -191,15 +192,6 @@ body, #root {
           background-size: contain;
           height: 30vh;
           cursor: pointer;
-        }
-
-        .title {
-          //background-color: black;
-        }
-
-        .text {
-          //background-color: black;
-          //font-size: larger;
         }
       }
     }
@@ -224,14 +216,6 @@ body, #root {
     }
     // Small screens
     @media all and (max-width: 900px) {
-      .project {
-        .card {
-          .image {
-            //height: 30vh;
-          }
-        }
-      }
-
       .detail {
         flex-direction: column;
         .image {
@@ -301,11 +285,21 @@ body, #root {
       .socials-center {
         @include order(1);
         flex-basis: 100%;
+
+        .c-button {
+          margin-bottom: 2px;
+        }
       }
       .credit {
         @include order(3);
         flex-basis: 50%;
+        margin-top: 5px;
       }
     }
   }
+
+    // Small screens
+    @media all and (max-width: 900px) {
+      padding-top: 0px;
+    }
 }
