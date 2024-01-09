@@ -1,5 +1,4 @@
 import { useLocation, Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
 const Details = () => {
   const location = useLocation();

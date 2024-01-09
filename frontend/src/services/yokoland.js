@@ -4,9 +4,11 @@
 // Current bug: 2 Gifs back-to-back if you play one quickly
 // -- and unclick, the first frame of the next gif will draw
 
-//TODO: Find a way for transparent gifs to not overwrite previous
+// TODO: Find a way for transparent gifs to not overwrite previous
 // -- drawn images from the transparent layer
-import React, { useState, useRef, useEffect } from 'react';
+// TODO: Scale images to mobile
+
+import { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
 import img1 from '../static/CIMG0894.JPG';
 import img2 from '../static/CIMG1165.JPG';
@@ -40,8 +42,8 @@ const Yokoland = ({ containerDimensions }) => {
 
       const img = new Image();
       img.src = imagePath;
-      const imgWidth = img.width/4;
-      const imgHeight = img.height/4;
+      const imgWidth = img.width/6;
+      const imgHeight = img.height/6;
       context.drawImage(img, (mouseX.current - imgWidth / 2), (mouseY.current - imgHeight / 2), imgWidth, imgHeight);
     };
 
