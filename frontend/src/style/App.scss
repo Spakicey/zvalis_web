@@ -164,7 +164,7 @@ body, #root {
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 0;
 
@@ -181,10 +181,13 @@ body, #root {
     }
 
     .project {
+      margin-left: 1.5rem;
       .card {
         @extend %red-on-black-text;
         margin-top: .5rem;
         margin-bottom: .5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         max-height: 50vh;
 
         .image {
@@ -214,28 +217,11 @@ body, #root {
         margin: auto;
       }
     }
-    // Small screens
-    @media all and (max-width: 900px) {
-      .detail {
-        flex-direction: column;
-        .image {
-          height: fit-content;
-        }
-        .title {
-          @extend %red-on-black-text;
-          writing-mode: horizontal-tb;
-          margin-bottom: 0;
-        }
-      }
-
-    }
 
     .credit {
       &__text {
-        visibility: visible;
-        background-color: black;
-        color: $col-ruby;
-        font-style: italic;
+        @extend %red-on-black-text;
+        padding-bottom: 1rem;
 
         .link {
           @extend %links;
@@ -249,6 +235,21 @@ body, #root {
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
+
+      .project {
+        margin: 0;
+      }
+      .detail {
+        flex-direction: column;
+        .image {
+          height: fit-content;
+        }
+        .title {
+          @extend %red-on-black-text;
+          writing-mode: horizontal-tb;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

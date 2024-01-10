@@ -35,6 +35,9 @@ const Info = () => {
           only using natural lighting with little to no
           post-processing.</p>
         </div>
+        <div className="nothing">
+
+        </div>
       </section>
     </div>
   );
