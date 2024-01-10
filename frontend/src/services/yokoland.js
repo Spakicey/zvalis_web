@@ -175,10 +175,6 @@ const Yokoland = ({ containerDimensions }) => {
       }
     };
 
-    const handleContextMenu = e => {
-      e.preventDefault();
-    };
-
     // touch event listeners
     canvas.addEventListener('touchstart', startDrawing);
     canvas.addEventListener('touchmove', draw);
@@ -190,22 +186,17 @@ const Yokoland = ({ containerDimensions }) => {
     canvas.addEventListener('mouseup', stopDrawing);
     canvas.addEventListener('mouseout', stopDrawing);
 
-    // disable right click event listener
-    canvas.addEventListener('contextmenu', handleContextMenu);
-
     return () => {
       canvas.removeEventListener('mousedown', startDrawing);
       canvas.removeEventListener('mousemove', draw);
       canvas.removeEventListener('mouseup', stopDrawing);
       canvas.removeEventListener('mouseout', stopDrawing);
 
-       // Remove touch event listeners
-       canvas.removeEventListener('touchstart', startDrawing);
-       canvas.removeEventListener('touchmove', draw);
-       canvas.removeEventListener('touchend', stopDrawing);
-
-       canvas.removeEventListener('contextmenu', handleContextMenu);
-      clearTimeout(cursorStopTimeout);
+      // Remove touch event listeners
+      canvas.removeEventListener('touchstart', startDrawing);
+      canvas.removeEventListener('touchmove', draw);
+      canvas.removeEventListener('touchend', stopDrawing);
+    clearTimeout(cursorStopTimeout);
     };
   }, [isDrawing, cursorImages, currentImageIndex]);
 
@@ -214,7 +205,7 @@ const Yokoland = ({ containerDimensions }) => {
       ref={canvasRef}
       width={containerWidth-1}
       height={containerHeight-1}
-      style={{ border: '1px solid #9B111E', cursor: 'auto', overflow: 'hidden' }}
+      style={{ cursor: 'auto', overflow: 'hidden' }}
     />
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import './style/App.scss';
 import Header from './components/Header';
 import Home from "./components/Home";
@@ -10,6 +11,19 @@ import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
+  useEffect(() => {
+    const handleContextMenu = e => {
+      e.preventDefault();
+    };
+
+    // disable right click event listener
+    document.addEventListener('contextmenu', handleContextMenu);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  })
+
   return (
     <BrowserRouter>
       <main className='main'>
@@ -25,6 +39,6 @@ function App() {
       </main>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
