@@ -6,8 +6,8 @@ const Info = () => {
       <section className='container'>
         <div className='info'>
           <h1 className='text'>"ABOUT ZACK VALIS"</h1>
-          <p className='text'>My name is Zack and I am a skilled
-          Software Developer currently based out of Charlotte,
+          <p className='text'>My name is Zack and I am a Software
+          Developer currently based out of Charlotte,
           North Carolina. I specialize in Data Science and Web
           Development, but I am always willing and eager to learn
           more in order to grow my skills.
@@ -22,8 +22,9 @@ const Info = () => {
           and streetwear culture in order to make the vision I had
           for my website a reality.
           </p>
-          <p className='text'>Some of my personal interests: I'm a big sports guy who likes to
-          watch football, basketball, and Formula 1. I also have a
+          <p className='text'>Some of my personal interests: I'm a
+          big sports guy who likes to watch football,
+          basketball, and Formula 1. I also have a
           couple cars that I like to work on, maintain, and customize.
           I am currently rebuilding my 2012 Subaru STi hatch to make
           roughly 400whp and plan one day to make my 1990 Miata into

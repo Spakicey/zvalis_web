@@ -45,7 +45,7 @@ const Header = () => {
         <div className='name3' ref={nameView} />
         <Link className='work3' to='/work' ref={workView} />
         <div className='avail'>
-          <span>AVAILABLE FOR FREELANCE<br /> WORK FROM JANUARY 2024</span>
+          <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
         </div>
         <div className='contact'>
           <p className="c-button">
