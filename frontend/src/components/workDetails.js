@@ -1,8 +1,9 @@
 import { useLocation, Link } from "react-router-dom";
+import { getPath } from "../services/ProjectService";
 
 const Details = () => {
   const location = useLocation();
-  let img_partial = "http://127.0.0.1:8000";
+  let img_partial = getPath();
 
   return (
     <div className="hero">

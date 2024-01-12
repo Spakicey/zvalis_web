@@ -10,3 +10,7 @@ export async function getProjects() {
     throw error; // Re-throw the error to propagate it
   }
 }
+
+export function getPath() {
+  return 'http://127.0.0.1:8000'
+};

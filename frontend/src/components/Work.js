@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects } from '../services/ProjectService';
+import { getProjects, getPath } from '../services/ProjectService';
 
-let img_partial = "http://127.0.0.1:8000";
+let img_partial = getPath();
+
 const Work = () => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
