@@ -1,7 +1,7 @@
 // yokoland.js
 // Based heavily on the gifuct.js github demo
 
-// Current bug: 2 Gifs back-to-back if you play one quickly
+// Current bug: Gifs back-to-back: if you play one quickly
 // -- and unclick, the first frame of the next gif will draw
 
 // TODO: Find a way for transparent gifs to not overwrite previous
@@ -10,14 +10,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
-import img1 from '../static/CIMG0894.JPG';
-import img2 from '../static/CIMG1165.JPG';
-import img3 from '../static/based-redline.gif';
-import img4 from '../static/giphy.gif';
-import img5 from '../static/redline.gif';
-import img6 from '../static/barbed-wire.gif';
+import { importAll } from './DrawnImageService';
 
 const Yokoland = ({ containerDimensions }) => {
+  const images = importAll(require.context('../static/drawn_images', false, /\.(png|jpe?g|svg|gif)$/));
   const containerWidth = containerDimensions.width;
   const containerHeight = containerDimensions.height;
   const canvasRef = useRef(null);
@@ -26,7 +22,7 @@ const Yokoland = ({ containerDimensions }) => {
   const mouseY = useRef(null);
   const playing = useRef(false);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [cursorImages, setCursorImages] = useState([img1, img3, img2, img4, img1, img6]);
+  const [cursorImages, setCursorImages] = useState(images);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   let gif;
 
