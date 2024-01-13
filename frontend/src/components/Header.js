@@ -22,8 +22,8 @@ const Header = () => {
   const workView = useRef();
 
   const email = 'example@example.com';
-  const subject = 'Subject Here';
-  const body = 'Body of the email here';
+  const subject = '<Insert Name> - Coding Inquiry';
+  const body = 'Please let me know who you are and what you have in mind!';
 
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
