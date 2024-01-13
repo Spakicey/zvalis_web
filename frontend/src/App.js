@@ -1,5 +1,5 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './style/App.scss';
 import Header from './components/Header';
 import Home from "./components/Home";
@@ -8,7 +8,6 @@ import Details from './components/workDetails';
 import Info from './components/Info';
 import Credit from './components/Credit';
 import Footer from './components/Footer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   useEffect(() => {

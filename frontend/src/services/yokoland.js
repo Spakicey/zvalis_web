@@ -10,10 +10,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
-import { importAll } from './DrawnImageService';
+import { ImageArray } from './DrawnImageService';
 
 const Yokoland = ({ containerDimensions }) => {
-  const images = importAll(require.context('../static/drawn_images', false, /\.(png|jpe?g|svg|gif)$/));
   const containerWidth = containerDimensions.width;
   const containerHeight = containerDimensions.height;
   const canvasRef = useRef(null);
@@ -22,7 +21,7 @@ const Yokoland = ({ containerDimensions }) => {
   const mouseY = useRef(null);
   const playing = useRef(false);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [cursorImages, setCursorImages] = useState(images);
+  const [cursorImages, setCursorImages] = useState(ImageArray);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   let gif;
 
