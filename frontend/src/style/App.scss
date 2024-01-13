@@ -175,8 +175,15 @@ body, #root {
     }
 
     .info {
+      padding: .5rem;
+      display: block;
       .text {
         @extend %red-on-black-text;
+      }
+
+      .image {
+        max-height: 300px;
+        max-width: 400px;
       }
     }
 
@@ -239,6 +246,7 @@ body, #root {
       .project {
         margin: 0;
       }
+
       .detail {
         flex-direction: column;
         .image {
@@ -248,6 +256,14 @@ body, #root {
           @extend %red-on-black-text;
           writing-mode: horizontal-tb;
           margin-bottom: 0;
+        }
+      }
+
+      .info {
+        .image {
+          max-height: 200px;
+          max-width: 300px;
+          float: right;
         }
       }
     }
