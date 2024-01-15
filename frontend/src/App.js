@@ -33,6 +33,7 @@ function App() {
           <Route exact path="/work" element={<Work/>} />
           <Route exact path='/details/:id' element={<Details/>} />
           <Route exact path="/credit" element={<Credit/>} />
+          <Route path='*' element={<Home/>} />
         </Routes>
         <Footer />
       </main>
