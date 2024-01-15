@@ -175,7 +175,10 @@ body, #root {
     }
 
     .info {
-      padding: .5rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 10rem;
+      padding-right: 10rem;
       display: block;
       .text {
         @extend %red-on-black-text;
@@ -188,7 +191,7 @@ body, #root {
     }
 
     .project {
-      margin-left: 1.5rem;
+      //margin-left: 1rem;
       .card {
         @extend %red-on-black-text;
         margin-top: .5rem;
@@ -260,6 +263,7 @@ body, #root {
       }
 
       .info {
+        padding: .5rem;
         .image {
           max-height: 200px;
           max-width: 300px;
