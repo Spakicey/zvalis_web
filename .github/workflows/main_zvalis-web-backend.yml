@@ -26,13 +26,10 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Install dependencies
-        run: |
-          cd backend
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
+        run: pip install -r requirements.txt
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
@@ -42,7 +39,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: python-app
-          path: ./backend/
+          path: |
+            release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -62,12 +61,13 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_930D90E7FF5B4B55B2CD2F736295AE76 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0B50003B361947D78FF5DBBFAC474106 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_24B9475F25B349EB92EBCC3DA5C5C69C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7B5D8C7136114EB8BAB1C2FADB294E34 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1EECC67C97B64F9FA99A78A4AC6AFF4F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_37DB99D6066749B28FA772399909DC76 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -75,3 +75,4 @@ jobs:
         with:
           app-name: 'zvalis-web-backend'
           slot-name: 'Production'
+          
