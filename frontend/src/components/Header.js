@@ -21,7 +21,7 @@ const Header = () => {
   const infoView = useRef();
   const workView = useRef();
 
-  const email = 'example@example.com';
+  const email = 'zackvalis@gmail.com';
   const subject = '<Insert Name> - Coding Inquiry';
   const body = 'Please let me know who you are and what you have in mind!';
 
@@ -39,7 +39,7 @@ const Header = () => {
           <Link className='link-style' to='/'>ZACHERIAH <br /> VALIS</Link>
         </div>
         <div className='folio'>
-          <span>SOFTWARE ENGINEER <br /> PORTFOLIO / 2024</span>
+          <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
         </div>
         <Link className='info3' to='/info' ref={infoView} />
         <div className='name3' ref={nameView} />
