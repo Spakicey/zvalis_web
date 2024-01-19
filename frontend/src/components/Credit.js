@@ -7,7 +7,7 @@ const Credit = () => {
         <div className='credit__text'>
           <h1>"ACKNOWLEDGEMENTS"</h1>
           <h3>Modern coding requires taking bits of
-            code from a miriad of sources, learning from it, and molding it
+            code from a miriad of sources, learning from it,<br /> and molding it
             into the program you need in order to achieve your vision.<br />
             This page is dedicated to all the developers from which I got
             inspiration and code from.<br />
@@ -21,7 +21,16 @@ const Credit = () => {
           <br />
           <a className="link" href="https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ">ABSURD 3D YouTube Channel [Camera Position Logger Code]</a>
           <br />
-          <a className="link" href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript">Rik Lomas [Initial Image Drawing Code]</a>
+          <a className="link" href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript">Rik Lomas [Version 1 Image Drawing Code]</a>
+          <h2>
+              <a
+                className="link"
+                href='https://github.com/Spakicey/zvalis_web'
+                target="_blank"
+                rel="noopener noreferrer"
+              >Repo To This Website!
+              </a>
+            </h2>
         </div>
       </section>
     </div>
