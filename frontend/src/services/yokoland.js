@@ -59,7 +59,6 @@ const Yokoland = ({ containerDimensions }) => {
       imgRef.current = img;
       imgWidth.current = img.width/6;
       imgHeight.current = img.height/6;
-      console.log('set image');
     }
 
     const drawStillImage = () => {
@@ -70,7 +69,6 @@ const Yokoland = ({ containerDimensions }) => {
       const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
-      console.log(mouseX.current, mouseY.current);
       if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
         renderFrame();
       }
@@ -98,7 +96,6 @@ const Yokoland = ({ containerDimensions }) => {
         }, 250);
       }
       else {
-        console.log('drawing still image');
         drawStillImage();
       }
     };
