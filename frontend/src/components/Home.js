@@ -26,7 +26,7 @@ const Home = () => {
   return (
     <div className='hero'>
       <section className='container' ref={containerRef}>
-        <Yokoland containerDimensions={containerDimensions}/>
+        <Yokoland containerDimensions={containerDimensions} />
       </section>
     </div>
   );
