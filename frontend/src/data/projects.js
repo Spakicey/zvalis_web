@@ -15,7 +15,7 @@ export const projectData = [
   {
     id: 1,
     name: 'MechaCar Statistical Analysis',
-    summary: 'Automotive Statistical Analysis',
+    summary: 'Automotive statistical analysis',
     description: 'Using R to gain new insights into mpg and suspension coil PSI data',
     technology: 'R, Linear Regression, T-Test',
     image: require('../static/project_images/CIMG0884.JPG'),
@@ -26,7 +26,7 @@ export const projectData = [
   {
     id: 2,
     name: 'Mapping Earthquakes',
-    summary: 'Interactive Maps',
+    summary: 'Interactive maps',
     description: 'Creating interactive maps displaying tectonic plates and earthquakes locations and magnitudes',
     technology: 'D3, GeoJSON, JavaScript',
     image: require('../static/project_images/CIMG0861.JPG'),
@@ -43,7 +43,7 @@ export const projectData = [
     image: require('../static/project_images/CIMG0861.JPG'),
     repository: 'https://github.com/Spakicey/belly-button-biodiversity',
     deployment: 'https://spakicey.github.io/belly-button-biodiversity/',
-    visible: true,
+    visible: 'visible',
   },
 ]
 
@@ -57,6 +57,6 @@ export const projectData = [
     image: require('../static/project_images/'),
     repository: 'https://github.com/Spakicey/',
     deployment: '',
-    visible: true,
+    visible: 'visible',
   },
 */}
