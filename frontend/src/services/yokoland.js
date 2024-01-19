@@ -11,8 +11,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
-import { ImageArray } from './DrawnImageService';
-
+import { imagesArray } from '../data/images';
 
 const Yokoland = ({ containerDimensions }) => {
   const containerWidth = containerDimensions.width;
@@ -22,8 +21,11 @@ const Yokoland = ({ containerDimensions }) => {
   const mouseX = useRef(null);
   const mouseY = useRef(null);
   const playing = useRef(false);
+  const imgRef = useRef(null);
+  const imgWidth = useRef(null);
+  const imgHeight = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [cursorImages, setCursorImages] = useState(ImageArray);
+  const [cursorImages, setCursorImages] = useState(imagesArray);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   let gif;
 
@@ -33,16 +35,6 @@ const Yokoland = ({ containerDimensions }) => {
     const gifCanvas = document.createElement('canvas');
     const gifCtx = canvas.getContext('2d');
     let cursorStopTimeout;
-
-    const drawStillImage = () => {
-      const imagePath = cursorImages[currentImageIndex];
-
-      const img = new Image();
-      img.src = imagePath;
-      const imgWidth = img.width/6;
-      const imgHeight = img.height/6;
-      context.drawImage(img, (mouseX.current - imgWidth / 2), (mouseY.current - imgHeight / 2), imgWidth, imgHeight);
-    };
 
     if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
       let oReq = new XMLHttpRequest();
@@ -59,11 +51,26 @@ const Yokoland = ({ containerDimensions }) => {
       };
       oReq.send(null);
     }
+    else {
+      const imagePath = cursorImages[currentImageIndex];
+
+      const img = new Image();
+      img.src = imagePath;
+      imgRef.current = img;
+      imgWidth.current = img.width/6;
+      imgHeight.current = img.height/6;
+      console.log('set image');
+    }
+
+    const drawStillImage = () => {
+      context.drawImage(imgRef.current, (mouseX.current - imgWidth.current / 2), (mouseY.current - imgHeight.current / 2), imgWidth.current, imgHeight.current);
+    };
 
     const startDrawing = (e) => {
       const { offsetX, offsetY } = getCoordinates(e);
       mouseX.current = offsetX;
       mouseY.current = offsetY;
+      console.log(mouseX.current, mouseY.current);
       if (cursorImages[currentImageIndex].toLowerCase().endsWith('.gif')) {
         renderFrame();
       }
@@ -91,6 +98,7 @@ const Yokoland = ({ containerDimensions }) => {
         }, 250);
       }
       else {
+        console.log('drawing still image');
         drawStillImage();
       }
     };
