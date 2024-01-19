@@ -169,6 +169,7 @@ body, #root {
     padding: 0;
 
     .home {
+      overflow: hidden;
       .text {
         @extend %red-on-black-text;
       }
@@ -226,6 +227,10 @@ body, #root {
         @extend %red-on-black-text;
         margin: auto;
       }
+
+      .git-link {
+        @extend %links;
+      }
     }
 
     .credit {
@@ -241,7 +246,7 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 49vh;
+      height: 51vh;
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;

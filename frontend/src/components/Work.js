@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+// Work.js
+//import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProjects, getPath } from '../services/ProjectService';
-
-let img_partial = getPath();
+//import { getProjects, getPath } from '../services/ProjectService';
+import { projectData } from '../data/projects';
+//let img_partial = getPath();
 
 const Work = () => {
   const navigate = useNavigate();
-  const [projects, setProjects] = useState([]);
+  //const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
+  /** get projects from backend
+   *   useEffect(() => {
     let mounted = true;
     getProjects()
       .then(data => {
@@ -18,18 +20,19 @@ const Work = () => {
       })
     return () => mounted = false;
   }, [])
+   */
 
   return(
     <div className="hero">
       <div className="container">
-        {projects.map((stu) =>
-          <div className='project' key={ stu.id }>
+        {projectData.map((stu) =>
+          <div className='project' key={ stu.id } style={{visibility: stu.visible}}>
             <div className='card'>
-              <img className="image" src={img_partial.concat(stu.image)}
+              <img className="image" src={stu.image}
               onClick={() => {navigate(`/details/${stu.id}`, { state: stu }) }} alt="ZCV/2K24"/>
               <div className="body">
-                <h2 className="title">{stu.title}</h2>
-                <p className="text">{stu.technology}</p>
+                <h2 className="title">{stu.name}</h2>
+                <p className="text">{stu.summary}</p>
                 <p className="c-button">
                   <span className="c-link">
                     <span className="c-link__inner">
