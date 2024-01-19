@@ -12,17 +12,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import sys
 import environ
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# Collect and serve images for projects app
-MEDIA_ROOT = '../frontend/src/static/uploads'
-MEDIA_URL = 'uploads/'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Initialize environment variables
@@ -82,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'zvalis_web.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -92,7 +88,6 @@ DATABASES = {
         'NAME': 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -124,15 +119,15 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-sys.path.append(os.path.join(BASE_DIR, 'apps'))
+# sys.path.append(os.path.join(BASE_DIR, 'apps'))
