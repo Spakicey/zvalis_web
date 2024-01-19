@@ -3,6 +3,7 @@
 
 // Current bug: Gifs back-to-back: if you play one quickly
 // -- and unclick, the first frame of the next gif will draw
+// bug: Still images not being drawn on mousedown??
 
 // TODO: Find a way for transparent gifs to not overwrite previous
 // -- drawn images from the transparent layer
@@ -11,6 +12,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { parseGIF, decompressFrames } from 'gifuct-js';
 import { ImageArray } from './DrawnImageService';
+
 
 const Yokoland = ({ containerDimensions }) => {
   const containerWidth = containerDimensions.width;
@@ -96,7 +98,7 @@ const Yokoland = ({ containerDimensions }) => {
     const stopDrawing = () => {
       setIsDrawing(false);
       playing.current = false;
-      canvas.style.cursor = 'auto';
+      canvas.style.cursor = 'pointer';
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % cursorImages.length);
       clearTimeout(cursorStopTimeout);
     };
@@ -197,10 +199,11 @@ const Yokoland = ({ containerDimensions }) => {
 
   return (
     <canvas
+      className='draw-canvas'
       ref={canvasRef}
       width={containerWidth-1}
       height={containerHeight-1}
-      style={{ cursor: 'auto', overflow: 'hidden' }}
+      style={{ cursor: 'pointer', overflow: 'hidden' }}
     />
   );
 };
