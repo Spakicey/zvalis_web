@@ -11,8 +11,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="WEB URL">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Spakicey/zvalis_web">
+    <img src="images/zvalis_webdev.png" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">Zack Valis Portfolio Website</h3>
@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Website Screenshot][site-screenshot]](WEB URL)
+[![Website Screenshot][site-screenshot]](https://github.com/Spakicey/zvalis_web)
 
 I want to have my own little corner of the intenet with this website! Since I know how to code, I figured I'd code my website from the ground up, teach myself some new things along the way, and show off a little bit of my personality!
 
@@ -185,7 +185,7 @@ Project Link: [https://github.com/Spakicey/zvalis_web](https://github.com/Spakic
 [license-url]: https://github.com/Spakicey/zvalis_web/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/zvalis
-[site-screenshot]: images/screenshot.png
+[site-screenshot]: images/site-screenshot.png
 [React.js]: https://forthebadge.com/images/badges/made-with-javascript.svg
 [React-url]: https://reactjs.org/
 [Django]: https://forthebadge.com/images/badges/made-with-python.svg
