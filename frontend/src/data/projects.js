@@ -45,6 +45,17 @@ export const projectData = [
     deployment: 'https://spakicey.github.io/belly-button-biodiversity/',
     visible: 'visible',
   },
+  {
+    id: 4,
+    name: 'Check Back For More!',
+    summary: '',
+    description: 'As I begin freelancing, I should have more works to add!',
+    technology: 'Brain Power',
+    image: require('../static/drawn_images/CIMG0861.JPG'),
+    repository: 'https://github.com/Spakicey',
+    deployment: '',
+    visible: 'visible',
+  },
 ]
 
 {/*
