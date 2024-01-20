@@ -208,7 +208,7 @@ const Yokoland = ({ containerDimensions }) => {
       ref={canvasRef}
       width={containerWidth-1}
       height={containerHeight-1}
-      style={{ cursor: 'pointer', overflow: 'hidden' }}
+      style={{ cursor: 'pointer', overflow: 'hidden', position: 'absolute', zIndex: 2 }}
     />
   );
 };

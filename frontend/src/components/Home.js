@@ -26,6 +26,9 @@ const Home = () => {
   return (
     <div className='hero'>
       <section className='container' ref={containerRef}>
+        <div className='home'>
+          <h1 className='text'>CLICK TO DRAW IMAGES</h1>
+        </div>
         <Yokoland containerDimensions={containerDimensions} />
       </section>
     </div>

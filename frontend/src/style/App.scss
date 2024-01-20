@@ -181,6 +181,7 @@ body, #root {
       padding-left: 10rem;
       padding-right: 10rem;
       display: block;
+
       .text {
         @extend %red-on-black-text;
       }
@@ -188,6 +189,10 @@ body, #root {
       .image {
         max-height: 300px;
         max-width: 400px;
+      }
+
+      .link-style {
+        @extend %links;
       }
     }
 
@@ -203,7 +208,6 @@ body, #root {
 
         .image {
           aspect-ratio: 4/3;
-          background-size: contain;
           height: 30vh;
           cursor: pointer;
         }

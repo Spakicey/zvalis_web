@@ -23,8 +23,12 @@ const Info = () => {
             intersection between form and function.
             When developing this website, I tirelessly blended the
             two and took great inspiration from hip hop
-            and streetwear culture in order to make the vision I had
-            for my website a reality.
+            and streetwear culture, as well as classic '90s website styles such as
+            the <a className='link-style'
+                    href='https://www.spacejam.com/1996/'
+                    target="_blank"
+                    rel="noopener noreferrer">Space Jam</a> site in order to make
+            the vision I had for my website a reality.
           </p>
           <img className='image' src={scoob1} alt='2012 Subaru With the Motor Out' />
           <img className='image' src={scoob2} alt='EJ25 Motor' />
@@ -39,7 +43,7 @@ const Info = () => {
             growing sneaker collection. Lastly, In 2017/2018 while studying
             abroad in Germany, I started to get into photography and
             continue to play around with different cameras and angles
-            only using natural lighting with little-to-no
+            only using natural lighting with no
             post-processing. Many of these images can be seen in the drawing
             component on the home page!
           </p>
