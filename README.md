@@ -168,6 +168,7 @@ Project Link: [https://github.com/Spakicey/zvalis_web](https://github.com/Spakic
 * [Yuri Artiukh AKA "Akella" [THREE.js Text Code]](https://www.github.com/akella)
 * [ABSURD 3D YouTube Channel [Camera Position Logger Code]](https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ)
 * [Rik Lomas [Version 1 Image Drawing Code]](https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript)
+* [Othneil Drew [README layout]](https://github.com/othneildrew)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
