@@ -1,20 +1,17 @@
 // workDetails.js
-import { useLocation, Link } from "react-router-dom";
-//import { getPath } from "../services/ProjectService";
-import { projectData } from '../data/projects';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Details = () => {
   const location = useLocation();
-  //let img_partial = getPath();
+  const navigate = useNavigate();
+  const imgPartial = '../static/project_images/';
 
   return (
     <div className="hero">
       <section className="container">
         <div className="detail">
           <h1 className="title">{ location.state.name }</h1>
-          {/* for the image I would use location.state.image */}
-          {/* but Vercel messes with the image path */}
-          <img className="image" src={ projectData[location.state.id].image } width="100%"/>
+          <img className="image" src={ imgPartial+ location.state.image } width="100%" alt="ZCV/2K24"/>
           <div className="body">
             <h2>About the project:</h2>
             <p>{ location.state.description }</p>
@@ -43,11 +40,13 @@ const Details = () => {
             <p className="c-button">
               <span className="c-link">
                 <span className="c-link__inner">
-                  <span>
-                    <Link to="/work">GO BACK</Link>
+                  <span onClick={() => navigate(-1)}>
+                    GO BACK
                   </span>
                   <span className="c-link__animated">
-                    <Link to="/work">GO BACK</Link>
+                    <span onClick={() => navigate(-1)}>
+                      GO BACK
+                    </span>
                   </span>
                 </span>
               </span>
