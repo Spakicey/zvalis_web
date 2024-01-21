@@ -13,15 +13,120 @@ const Credit = () => {
             inspiration and code from.<br />
             Thank you!
           </h3>
-          <a className="link" href="https://www.seyi.dev/">Oluwadare Oluwaseyi [Stylistic Inspiration + SCSS Code]</a>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://www.seyi.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Oluwadare Oluwaseyi [Stylistic Inspiration + SCSS Code]
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://www.seyi.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Oluwadare Oluwaseyi [Stylistic Inspiration + SCSS Code]
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
           <br />
-          <a className="link" href="https://www.fayemi.design/">Isaac Fayemi [Stylistic Inspiration]</a>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://www.fayemi.design/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Isaac Fayemi [Stylistic Inspiration]
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://www.fayemi.design/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Isaac Fayemi [Stylistic Inspiration]
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
           <br />
-          <a className="link" href="https://www.github.com/akella">Yuri Artiukh AKA "Akella" [THREE.js Text Code]</a>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://www.github.com/akella"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Yuri Artiukh AKA "Akella" [THREE.js Text Code]
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://www.github.com/akella"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Yuri Artiukh AKA "Akella" [THREE.js Text Code]
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
           <br />
-          <a className="link" href="https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ">ABSURD 3D YouTube Channel [Camera Position Logger Code]</a>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >ABSURD 3D YouTube Channel [Camera Position Logger Code]
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://youtu.be/1Hg6gQs4RDQ?si=HN8MF0tKU9uMr9jJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >ABSURD 3D YouTube Channel [Camera Position Logger Code]
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
           <br />
-          <a className="link" href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript">Rik Lomas [Version 1 Image Drawing Code]</a>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <a
+                    href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Rik Lomas [Version 1 Image Drawing Code]
+                  </a>
+                </span>
+                <span className="c-link__animated">
+                  <a
+                    href="https://library.superhi.com/posts/making-a-clickable-digital-collage-with-javascript"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Rik Lomas [Version 1 Image Drawing Code]
+                  </a>
+                </span>
+              </span>
+            </span>
+          </span>
           <h2>
               <a
                 className="link"

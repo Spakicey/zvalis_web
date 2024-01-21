@@ -36,7 +36,18 @@ const Header = () => {
     <header ref={ref} className='header'>
       <div className='container'>
         <div className='name'>
-          <Link className='link-style' to='/'>ZACHERIAH <br /> VALIS</Link>
+          <span className="c-button">
+            <span className="c-link">
+              <span className="c-link__inner">
+                <span>
+                  <Link to='/'>ZACK VALIS</Link>
+                </span>
+                <span className="c-link__animated">
+                  <Link to='/'>ZACK VALIS</Link>
+                </span>
+              </span>
+            </span>
+          </span>
         </div>
         <div className='folio'>
           <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
@@ -48,7 +59,7 @@ const Header = () => {
           <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
         </div>
         <div className='contact'>
-          <p className="c-button">
+          <span className="c-button">
             <span className="c-link">
               <span className="c-link__inner">
                 <span>
@@ -67,7 +78,7 @@ const Header = () => {
                 </span>
               </span>
             </span>
-          </p>
+          </span>
         </div>
       </div>
 
