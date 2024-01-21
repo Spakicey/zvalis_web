@@ -57,8 +57,8 @@ const Yokoland = ({ containerDimensions }) => {
       const img = new Image();
       img.src = imagePath;
       imgRef.current = img;
-      imgWidth.current = img.width/6;
-      imgHeight.current = img.height/6;
+      imgWidth.current = img.width/10;
+      imgHeight.current = img.height/10;
     }
 
     const drawStillImage = () => {
