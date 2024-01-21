@@ -1,6 +1,6 @@
-import miata1 from '../static/drawn_images/miata1.jpg';
-import scoob1 from '../static/drawn_images/scoob1.jpg';
-import scoob2 from '../static/drawn_images/scoob2.jpg';
+import miata1 from '../static/miata1.jpg';
+import scoob1 from '../static/scoob1.jpg';
+import scoob2 from '../static/scoob2.jpg';
 
 const Info = () => {
 
