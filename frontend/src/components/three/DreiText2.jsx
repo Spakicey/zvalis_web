@@ -8,9 +8,8 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import myFont from '../../static/fonts/Gotisch.json';
 //import matcap7 from '../../static/textures/venice_sunset_1k.hdr';
 
-const SEGMENTS = 12;
-
 export default function Text({ children, vAlign = "center", hAlign = "center", size = 1, color = "#000000", ...props }) {
+  const SEGMENTS = 12;
   const font = new FontLoader().parse(myFont);
   //const texture = useLoader(RGBELoader, matcap7);
   //texture.wrapS = THREE.RepeatWrapping;

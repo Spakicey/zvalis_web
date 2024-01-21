@@ -1,6 +1,6 @@
 // Work.js
 //import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import projectData from '../data/projects.json';
 //import { getProjects, getPath } from '../services/ProjectService';
 //let img_partial = getPath();

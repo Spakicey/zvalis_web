@@ -25,9 +25,9 @@ const Yokoland = ({ containerDimensions }) => {
   const imgWidth = useRef(null);
   const imgHeight = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [cursorImages, setCursorImages] = useState(imagesArray);
+  const [cursorImages, {/*setCursorImages*/}] = useState(imagesArray);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  let gif;
+  const gifRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,8 +44,8 @@ const Yokoland = ({ containerDimensions }) => {
       oReq.onload = () => {
         let arrayBuffer = oReq.response; // Note: not oReq.responseText
         if (arrayBuffer) {
-          gif = parseGIF(arrayBuffer);
-          let frames = decompressFrames(gif, true);
+          gifRef.current = parseGIF(arrayBuffer);
+          let frames = decompressFrames(gifRef.current, true);
           framesRef.current = frames;
         }
       };
