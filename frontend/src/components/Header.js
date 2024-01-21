@@ -27,9 +27,9 @@ const Header = () => {
 
   const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-  const { concurrent, distributed } = useControls({
+  const { concurrent, /*distributed*/ } = useControls({
     concurrent: { value: true },
-    distributed: { value: true },
+    /*distributed: { value: true },*/
   });
 
   return (
