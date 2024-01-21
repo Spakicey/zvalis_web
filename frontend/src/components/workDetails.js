@@ -1,18 +1,20 @@
 // workDetails.js
 import { useLocation, Link } from "react-router-dom";
 //import { getPath } from "../services/ProjectService";
+import { projectData } from '../data/projects';
 
 const Details = () => {
   const location = useLocation();
   //let img_partial = getPath();
-
 
   return (
     <div className="hero">
       <section className="container">
         <div className="detail">
           <h1 className="title">{ location.state.name }</h1>
-          <img className="image" src={location.state.image} width="100%"/>
+          {/* for the image I would use location.state.image */}
+          {/* but Vercel messes with the image path */}
+          <img className="image" src={ projectData[location.state.id].image } width="100%"/>
           <div className="body">
             <h2>About the project:</h2>
             <p>{ location.state.description }</p>
