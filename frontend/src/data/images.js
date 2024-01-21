@@ -1,3 +1,4 @@
+// images.js
 import img1 from '../static/drawn_images/barbed-wire.gif';
 import img2 from '../static/drawn_images/based-redline.gif';
 import img3 from '../static/drawn_images/giphy.gif';
@@ -20,7 +21,6 @@ import img19 from '../static/drawn_images/cm1.jpg';
 import img20 from '../static/drawn_images/me1.jpg';
 
 export const imagesArray = [img18, img19, img20, img8, img1,
-                      img9, img17, img10, img16, img2,
-                      img11, img5, img12, img14, img3,
-                      img13, img15, img6, img4, img7,]
-
+                            img9, img17, img10, img16, img2,
+                            img11, img5, img12, img14, img3,
+                            img13, img15, img6, img4, img7,]
