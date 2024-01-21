@@ -39,6 +39,7 @@ body, #root {
 }
 
 .header {
+  padding-bottom: 0;
   .canvas {
     position: fixed !important;
     top: 0px;
@@ -69,8 +70,6 @@ body, #root {
     color: $col-ruby;
 
     .name {
-      background-color: black;
-
       .link-style {
         @extend %links;
       }
@@ -84,8 +83,8 @@ body, #root {
       background-position: bottom;
       background-size: contain;
       background-repeat: no-repeat;
-      width: 8rem;
-      height: 5rem;
+      width: 10vw;
+      height: 10vh;
       overflow: hidden;
     }
     .name3 {
@@ -94,8 +93,8 @@ body, #root {
       background-size: 100%;
       background-size: cover;
       background-repeat: no-repeat;
-      width: 18rem;
-      height: 5.5rem;
+      width: 17vw;
+      height: 10vh;
       overflow: hidden;
     }
     .work3 {
@@ -104,8 +103,8 @@ body, #root {
       background-position: bottom;
       background-size: contain;
       background-repeat: no-repeat;
-      width: 8rem;
-      height: 5rem;
+      width: 10vw;
+      height: 10vh;
       overflow: hidden;
     }
     .avail {
@@ -125,25 +124,30 @@ body, #root {
       .folio {
         @include order(2);
         flex-basis: 50%;
+        visibility: collapse;
       }
       .info3 {
         @include order(3);
         flex-basis: 50%;
+        height: 12vh;
       }
       .name3 {
-        @include order(5);
-        flex-basis: 100%;
+        @include order(4);
+        flex-basis: 33%;
+        visibility: collapse;
       }
       .work3 {
-        @include order(4);
+        @include order(5);
         flex-basis: 50%;
+        height: 12vh;
       }
       .avail {
         @include order(6);
         flex-basis: 50%;
+        visibility: collapse;
       }
       .contact {
-        @include order(7);
+        @include order(2);
         flex-basis: 50%;
       }
     }
@@ -152,6 +156,7 @@ body, #root {
 
 .hero {
   visibility: visible;
+  padding-top: 0;
 
   .container {
     @include flexbox();
@@ -197,19 +202,26 @@ body, #root {
     }
 
     .project {
-      //margin-left: 1rem;
+      max-height: 60vh;
+      width: 40vh;
+      margin-bottom: 1vh;
+      margin-top: .5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
       .card {
         @extend %red-on-black-text;
-        margin-top: .5rem;
-        margin-bottom: .5rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        max-height: 50vh;
+        padding-bottom: 1vh;
 
         .image {
           aspect-ratio: 4/3;
           height: 30vh;
           cursor: pointer;
+        }
+
+        .body {
+          .title {
+            margin-top: 0;
+          }
         }
       }
     }
@@ -218,7 +230,6 @@ body, #root {
       @include flexbox();
 
       .image {
-        //scale: 50%;
         height: 70vh;
       }
       .title {
@@ -250,14 +261,10 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 51vh;
+      height: 52vh;
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
-
-      .project {
-        margin: 0;
-      }
 
       .detail {
         flex-direction: column;

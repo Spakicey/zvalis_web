@@ -1,6 +1,7 @@
 // Work.js
 //import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import { getProjects, getPath } from '../services/ProjectService';
 import { projectData } from '../data/projects';
 //let img_partial = getPath();
@@ -33,7 +34,7 @@ const Work = () => {
               <div className="body">
                 <h2 className="title">{stu.name}</h2>
                 <p className="text">{stu.summary}</p>
-                <p className="c-button">
+                <span className="c-button">
                   <span className="c-link">
                     <span className="c-link__inner">
                       <span>
@@ -50,7 +51,7 @@ const Work = () => {
                       </span>
                     </span>
                   </span>
-                </p>
+                </span>
               </div>
             </div>
           </div>
