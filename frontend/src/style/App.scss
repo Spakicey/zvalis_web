@@ -128,18 +128,16 @@ body, #root {
       }
       .info3 {
         @include order(3);
-        flex-basis: 50%;
-        height: 12vh;
+        flex-basis: 20%;
       }
       .name3 {
         @include order(4);
-        flex-basis: 33%;
-        visibility: collapse;
+        flex-basis: 60%;
+        height: 9vh;
       }
       .work3 {
         @include order(5);
-        flex-basis: 50%;
-        height: 12vh;
+        flex-basis: 20%;
       }
       .avail {
         @include order(6);
