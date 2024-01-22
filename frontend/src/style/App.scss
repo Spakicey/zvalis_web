@@ -302,18 +302,19 @@ body, #root {
 
         .text {
 
-
         }
       }
 
       .detail {
         flex-direction: column;
         .image {
-          height: fit-content;
+          aspect-ratio: 4/3;
+          height: 30vh;
         }
         .title {
           @extend %red-on-black-text;
           writing-mode: horizontal-tb;
+          margin-top: 0;
           margin-bottom: 0;
         }
       }
@@ -385,7 +386,6 @@ body, #root {
           .c-button {
 
           }
-
         }
 
       }
@@ -398,7 +398,6 @@ body, #root {
         .credit {
           //scale: 75%;
         }
-
       }
     }
   }
