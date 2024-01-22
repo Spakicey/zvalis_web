@@ -116,7 +116,7 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      flex-flow: wrap;
+      flex-flow: wrap !important;
       .name {
         @include order(1);
         flex-basis: 50%;

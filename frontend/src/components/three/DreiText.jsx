@@ -14,10 +14,10 @@ import { MeshTransmissionMaterial } from "@react-three/drei";
 import myFont3 from '../../static/fonts/Gotisch.json';
 
 extend({ TextGeometry });
-const SEGMENTS = 12;
+//const SEGMENTS = 12;
 
 export default function Text3D({ children, ...props }) {
-  //const SEGMENTS = 12;
+  const SEGMENTS = 12;
   const refMesh = useRef();
   const refMaterial = useRef();
   //console.log(config, 'config!!!');
@@ -30,13 +30,12 @@ export default function Text3D({ children, ...props }) {
 
   //const texture = new THREE.TextureLoader().load(matcap5);
   //const texture = useLoader(RGBELoader, matcap7);
-  {/**
-      const texture = new RGBELoader()
-  .setPath( 'textures/equirectangular/' )
-  .load( matcap7, function () {
-    texture.mapping = THREE.EquirectangularReflectionMapping;
-  } );
-*/}
+
+  //const texture = new RGBELoader()
+  //.setPath( 'textures/equirectangular/' )
+  //.load( matcap7, function () {
+    //texture.mapping = THREE.EquirectangularReflectionMapping;
+  //} );
   //texture.wrapS = THREE.RepeatWrapping;
   //texture.wrapT = THREE.RepeatWrapping;
 

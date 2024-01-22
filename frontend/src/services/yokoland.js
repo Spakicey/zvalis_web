@@ -25,7 +25,7 @@ const Yokoland = ({ containerDimensions }) => {
   const imgWidth = useRef(null);
   const imgHeight = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
-  const [cursorImages, {/*setCursorImages*/}] = useState(imagesArray);
+  const [cursorImages] = useState(imagesArray);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const gifRef = useRef(null);
 
