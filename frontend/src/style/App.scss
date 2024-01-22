@@ -135,10 +135,12 @@ body, #root {
         justify-content: space-around;
         align-items: center;
         .name {
+          //scale: 75%;
           visibility: visible;
 
         }
         .folio {
+          //scale: 75%;
           visibility: visible;
         }
       }
@@ -167,10 +169,12 @@ body, #root {
         align-items: center;
 
         .avail {
+          //scale: 75%;
           visibility: visible;
         }
 
         .contact {
+          //scale: 75%;
           visibility: visible;
 
         }
@@ -181,8 +185,8 @@ body, #root {
 
 .hero {
   visibility: visible;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
 
   .container {
     @include flexbox();
@@ -200,6 +204,7 @@ body, #root {
     padding: 0;
 
     .home {
+      @include flexbox();
       overflow: hidden;
       .text {
         @extend %red-on-black-text;
@@ -287,11 +292,19 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 60vh;
+      height: 58.5vh;
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
-      //padding-bottom: 0;
+
+      .home {
+        visibility: collapse;
+
+        .text {
+
+
+        }
+      }
 
       .detail {
         flex-direction: column;
@@ -325,54 +338,67 @@ body, #root {
     color: $col-ruby;
     overflow: hidden;
 
-    .clock {
-      background-color: black;
-    }
-    .socials {
+    .left {
       @include flexbox();
-      .fun-links {
-        visibility: visible;
-      }
-      .work-links {
-        visibility: visible;
+      .clock {
+        background-color: black;
       }
     }
-    .credit {
-      background-color: black;
+    .center {
+      @include flexbox();
 
-      .link-style {
-        @extend %links;
+    }
+    .right {
+      @include flexbox();
+      .credit {
+        background-color: black;
+
+        .link-style {
+          @extend %links;
+        }
       }
     }
 
     // Small screens
     @media all and (max-width: 900px) {
       flex-flow: wrap;
-      .clock {
+      .left {
         @include order(2);
-        flex-basis: 50%;
-      }
-      .socials {
-        @include order(1);
-        flex-basis: 100%;
-        justify-content: center;
-        height: 6.5vh;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
 
-        @media all and (max-width: 400px) {
-          .fun-links {
-            visibility: collapse;
+        .clock {
+          //scale: 75%;
+          margin-bottom: 1px;
+        }
+
+      }
+      .center {
+        @include order(1);
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+
+        .socials {
+
+          .c-button {
+
           }
 
         }
 
-        .c-button {
-          margin-bottom: 2px;
-        }
       }
-      .credit {
+      .right {
         @include order(3);
-        flex-basis: 50%;
-        margin-top: 5px;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+
+        .credit {
+          //scale: 75%;
+        }
+
       }
     }
   }

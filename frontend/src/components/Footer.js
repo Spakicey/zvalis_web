@@ -29,9 +29,11 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='container'>
-        <span className='clock'>CLT, NC: {estTime}</span>
-        <div className='socials'>
-          <div className='fun-links'>
+        <div className='left'>
+          <span className='clock'>CLT, NC: {estTime}</span>
+        </div>
+        <div className='center'>
+          <div className='socials'>
             <span className="c-button">
               <span className="c-link">
                 <span className="c-link__inner">
@@ -54,31 +56,6 @@ const Footer = () => {
                 </span>
               </span>
             </span>
-            <span className="c-button">
-              <span className="c-link">
-                <span className="c-link__inner">
-                  <span>
-                    <a
-                      href="https://www.instagram.com/spakicey/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >instagram
-                    </a>
-                  </span>
-                  <span className="c-link__animated">
-                    <a
-                      href="https://www.instagram.com/spakicey/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >instagram
-                    </a>
-                  </span>
-                </span>
-              </span>
-            </span>
-
-          </div>
-          <div className='work-links'>
             <span className="c-button">
               <span className="c-link">
                 <span className="c-link__inner">
@@ -125,8 +102,10 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className='credit'>
-          <Link className='link-style' to='/credit'>ACKNOWLEDGEMENTS</Link>
+        <div className='right'>
+          <div className='credit'>
+            <Link className='link-style' to='/credit'>ACKNOWLEDGEMENTS</Link>
+          </div>
         </div>
       </div>
     </footer>
