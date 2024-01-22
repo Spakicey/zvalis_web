@@ -68,96 +68,121 @@ body, #root {
     align-items: center;
     color: $col-ruby;
 
-    .name {
-      .link-style {
-        @extend %links;
+    .left {
+      @include flexbox();
+      .name {
+        .link-style {
+          @extend %links;
+        }
+      }
+      .folio {
+        background-color: black;
       }
     }
-    .folio {
-      background-color: black;
+
+    .center {
+      @include flexbox();
+      .info3 {
+        @extend %link-invert;
+        background-image: $fire2-img;
+        background-position: bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 10vw;
+        height: 10vh;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .name3 {
+        background-image: $fire2-img;
+        background-position: bottom;
+        background-size: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 20vw;
+        height: 10vh;
+        overflow: hidden;
+      }
+      .work3 {
+        @extend %link-invert;
+        background-image: $fire2-img;
+        background-position: bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 10vw;
+        height: 10vh;
+        overflow: hidden;
+        cursor: pointer;
+      }
     }
-    .info3 {
-      @extend %link-invert;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 10vw;
-      height: 10vh;
-      overflow: hidden;
-      cursor: pointer;
+
+    .right {
+      @include flexbox();
+      .avail {
+        background-color: black;
+      }
+      .contact {
+        visibility: visible;
+      }
     }
-    .name3 {
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 20vw;
-      height: 10vh;
-      overflow: hidden;
-    }
-    .work3 {
-      @extend %link-invert;
-      background-image: $fire2-img;
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 10vw;
-      height: 10vh;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .avail {
-      background-color: black;
-    }
-    .contact {
-      visibility: visible;
-    }
-  }
 
     // Small screens
     @media all and (max-width: 900px) {
-      .container {
-        flex-flow: wrap !important;
+      flex-flow: wrap;
+      .left {
+        @include order(1);
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
         .name {
-          @include order(1);
-          flex-basis: 50%;
+          visibility: visible;
+
         }
         .folio {
-          @include order(2);
-          flex-basis: 50%;
-          visibility: collapse;
+          visibility: visible;
         }
+      }
+      .center {
+        @include order(2);
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
         .info3 {
-          @include order(3);
-          flex-basis: 20%;
+          width: 25vw;
+
         }
         .name3 {
-          @include order(4);
-          flex-basis: 60%;
-          height: 9vh;
+          height: 8vh;
+          width: 60vw;
+
         }
         .work3 {
-          @include order(5);
-          flex-basis: 20%;
+          width: 25vw;
         }
+      }
+      .right {
+        @include order(3);
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+
         .avail {
-          @include order(6);
-          flex-basis: 50%;
-          visibility: collapse;
+          visibility: visible;
         }
+
         .contact {
-          @include order(2);
-          flex-basis: 50%;
+          visibility: visible;
+
         }
       }
     }
+  }
 }
 
 .hero {
   visibility: visible;
   padding-top: 0;
+  padding-bottom: 0;
 
   .container {
     @include flexbox();
@@ -262,10 +287,11 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 52vh;
+      height: 60vh;
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
+      //padding-bottom: 0;
 
       .detail {
         flex-direction: column;
@@ -302,8 +328,14 @@ body, #root {
     .clock {
       background-color: black;
     }
-    .socials-center {
-      visibility: visible;
+    .socials {
+      @include flexbox();
+      .fun-links {
+        visibility: visible;
+      }
+      .work-links {
+        visibility: visible;
+      }
     }
     .credit {
       background-color: black;
@@ -320,9 +352,18 @@ body, #root {
         @include order(2);
         flex-basis: 50%;
       }
-      .socials-center {
+      .socials {
         @include order(1);
         flex-basis: 100%;
+        justify-content: center;
+        height: 6.5vh;
+
+        @media all and (max-width: 400px) {
+          .fun-links {
+            visibility: collapse;
+          }
+
+        }
 
         .c-button {
           margin-bottom: 2px;

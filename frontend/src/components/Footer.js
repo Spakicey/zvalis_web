@@ -30,95 +30,100 @@ const Footer = () => {
     <footer className='footer'>
       <div className='container'>
         <span className='clock'>CLT, NC: {estTime}</span>
-        <div className='socials-center'>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <a
-                    href="https://open.spotify.com/user/spakicey"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >spotify
-                  </a>
-                </span>
-                <span className="c-link__animated">
-                  <a
-                    href="https://open.spotify.com/user/spakicey"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >spotify
-                  </a>
-                </span>
-              </span>
-            </span>
-          </span>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <a
-                    href="https://www.instagram.com/spakicey/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >instagram
-                  </a>
-                </span>
-                <span className="c-link__animated">
-                  <a
-                    href="https://www.instagram.com/spakicey/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >instagram
-                  </a>
+        <div className='socials'>
+          <div className='fun-links'>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
+                  <span>
+                    <a
+                      href="https://open.spotify.com/user/spakicey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >spotify
+                    </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <a
+                      href="https://open.spotify.com/user/spakicey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >spotify
+                    </a>
+                  </span>
                 </span>
               </span>
             </span>
-          </span>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <a
-                    href="https://www.github.com/spakicey"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >github
-                  </a>
-                </span>
-                <span className="c-link__animated">
-                  <a
-                    href="https://www.github.com/spakicey"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >github
-                  </a>
-                </span>
-              </span>
-            </span>
-          </span>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <a
-                    href="https://www.linkedin.com/in/zvalis/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >linkedin
-                  </a>
-                </span>
-                <span className="c-link__animated">
-                  <a
-                    href="https://www.linkedin.com/in/zvalis/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >linkedin
-                  </a>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
+                  <span>
+                    <a
+                      href="https://www.instagram.com/spakicey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >instagram
+                    </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <a
+                      href="https://www.instagram.com/spakicey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >instagram
+                    </a>
+                  </span>
                 </span>
               </span>
             </span>
-          </span>
+
+          </div>
+          <div className='work-links'>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
+                  <span>
+                    <a
+                      href="https://www.github.com/spakicey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >github
+                    </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <a
+                      href="https://www.github.com/spakicey"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >github
+                    </a>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
+                  <span>
+                    <a
+                      href="https://www.linkedin.com/in/zvalis/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >linkedin
+                    </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <a
+                      href="https://www.linkedin.com/in/zvalis/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >linkedin
+                    </a>
+                  </span>
+                </span>
+              </span>
+            </span>
+          </div>
         </div>
         <div className='credit'>
           <Link className='link-style' to='/credit'>ACKNOWLEDGEMENTS</Link>

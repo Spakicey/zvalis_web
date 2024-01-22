@@ -37,54 +37,60 @@ const Header = () => {
   return (
     <header ref={ref} className='header'>
       <div className='container'>
-        <div className='name'>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <Link to='/'>ZACK VALIS</Link>
-                </span>
-                <span className="c-link__animated">
+        <div className='left'>
+          <div className='name'>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
                   <span>
                     <Link to='/'>ZACK VALIS</Link>
+                  </span>
+                  <span className="c-link__animated">
+                    <span>
+                      <Link to='/'>ZACK VALIS</Link>
+                    </span>
                   </span>
                 </span>
               </span>
             </span>
-          </span>
+          </div>
+          <div className='folio'>
+            <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
+          </div>
         </div>
-        <div className='folio'>
-          <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
+        <div className='center'>
+          <div className='info3' ref={infoView} onClick={() => navigate('/info')}/>
+          <div className='name3' ref={nameView} />
+          <div className='work3' ref={workView} onClick={() => navigate('/work')}/>
         </div>
-        <div className='info3' ref={infoView} onClick={() => navigate('/info')}/>
-        <div className='name3' ref={nameView} />
-        <div className='work3' ref={workView} onClick={() => navigate('/work')}/>
-        <div className='avail'>
-          <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
-        </div>
-        <div className='contact'>
-          <span className="c-button">
-            <span className="c-link">
-              <span className="c-link__inner">
-                <span>
-                  <a
-                    href={mailtoLink}
-                    rel="noopener noreferrer"
-                  >EMAIL
-                  </a>
-                </span>
-                <span className="c-link__animated">
+        <div className='right'>
+          <div className='avail'>
+            <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
+          </div>
+          <div className='contact'>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
                   <span>
                     <a
                       href={mailtoLink}
                       rel="noopener noreferrer"
-                    >EMAIL
+                    >CONTACT
                     </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <span>
+                      <a
+                        href={mailtoLink}
+                        rel="noopener noreferrer"
+                      >CONTACT
+                      </a>
+                    </span>
                   </span>
                 </span>
               </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
 
