@@ -12,7 +12,8 @@ import {
   Environment, } from '@react-three/drei';
 import { useControls, Leva } from 'leva';
 //import CameraPositionLogger from './three/helpers/CameraPositionLogger';
-import Text from './three/DreiText2';
+//import Text from './three/DreiText2';
+import Text3D from './three/DreiText';
 import HDR from '../static/textures/venice_sunset_1k.hdr';
 
 const Header = () => {
@@ -43,7 +44,9 @@ const Header = () => {
                   <Link to='/'>ZACK VALIS</Link>
                 </span>
                 <span className="c-link__animated">
-                  <Link to='/'>ZACK VALIS</Link>
+                  <span>
+                    <Link to='/'>ZACK VALIS</Link>
+                  </span>
                 </span>
               </span>
             </span>
@@ -52,9 +55,9 @@ const Header = () => {
         <div className='folio'>
           <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
         </div>
-        <Link className='info3' to='/info' ref={infoView} />
+        <div className='info3' ref={infoView} />
         <div className='name3' ref={nameView} />
-        <Link className='work3' to='/work' ref={workView} />
+        <div className='work3' ref={workView} />
         <div className='avail'>
           <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
         </div>
@@ -70,11 +73,13 @@ const Header = () => {
                   </a>
                 </span>
                 <span className="c-link__animated">
-                  <a
-                    href={mailtoLink}
-                    rel="noopener noreferrer"
-                  >CONTACT
-                  </a>
+                  <span>
+                    <a
+                      href={mailtoLink}
+                      rel="noopener noreferrer"
+                    >CONTACT
+                    </a>
+                  </span>
                 </span>
               </span>
             </span>
@@ -104,18 +109,18 @@ const Header = () => {
                 azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
                   <Environment files={HDR} background={false}/>
                   <Resize scale={8}>
-                    <Text>Zack Valis</Text>
+                    <Text3D>Zack Valis</Text3D>
                   </Resize>
               </PresentationControls>
             </Center>
           </View>
           <View index={2} track={infoView}>
             <Environment files={HDR} background={false}/>
-            <Text>Info</Text>
+            <Text3D>Info</Text3D>
           </View>
           <View index={3} track={workView}>
             <Environment files={HDR} background={false}/>
-            <Text>Work</Text>
+            <Text3D>Work</Text3D>
           </View>
         </Suspense>
         <ambientLight />

@@ -1,42 +1,42 @@
 // ORIGINAL AUTHOR: Akella
-import * as THREE from "three";
-import React, { useRef, useEffect, useLayoutEffect } from 'react';
-import { RGBELoader } from 'three-stdlib';
+//import * as THREE from "three";
+import { useRef, useLayoutEffect, useMemo } from 'react';
+//import { RGBELoader } from 'three-stdlib';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { useFrame, extend, useLoader } from '@react-three/fiber';
+import { useFrame, extend } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from "@react-three/drei";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { MaterialXLoader } from "three/examples/jsm/loaders/MaterialXLoader.js";
+//import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+//import { MaterialXLoader } from "three/examples/jsm/loaders/MaterialXLoader.js";
 
-
-import myFont from '../../static/fonts/font.json';
-import myFont2 from '../../static/fonts/Cloister.json';
+//import myFont from '../../static/fonts/font.json';
+//import myFont2 from '../../static/fonts/Cloister.json';
 import myFont3 from '../../static/fonts/Gotisch.json';
-import matcap1 from '../../static/textures/chemical_carpaint_blue.png';
-import matcap2 from '../../static/textures/envmap.hdr';
-import matcap3 from '../../static/textures/metal_plate_rough_4k.jpg';
-import matcap4 from '../../static/textures/metal_plate_diff_4k.jpg';
-import matcap5 from '../../static/textures/tomato.b5147119.png';
-import matcap6 from '../../static/textures/clay_alien.a1b7f7c8.png';
-import matcap7 from '../../static/textures/venice_sunset_1k.hdr';
-import matcap8 from '../../static/textures/standard_surface_chrome.mtlx'
 
 extend({ TextGeometry });
+const SEGMENTS = 12;
 
-export default function Text1({ config }) {
+export default function Text3D({ children, ...props }) {
+  //const SEGMENTS = 12;
   const refMesh = useRef();
   const refMaterial = useRef();
-  console.log(config, 'config!!!');
+  //console.log(config, 'config!!!');
   const font = new FontLoader().parse(myFont3);
+
+  const config = useMemo(() => ({ font, size: 1, height: 0.5, curveSegments: SEGMENTS, bevelEnabled: false }), [
+    font,
+    SEGMENTS,
+  ]);
 
   //const texture = new THREE.TextureLoader().load(matcap5);
   //const texture = useLoader(RGBELoader, matcap7);
-  const texture = new RGBELoader()
+  {/**
+      const texture = new RGBELoader()
   .setPath( 'textures/equirectangular/' )
   .load( matcap7, function () {
     texture.mapping = THREE.EquirectangularReflectionMapping;
   } );
+*/}
   //texture.wrapS = THREE.RepeatWrapping;
   //texture.wrapT = THREE.RepeatWrapping;
 
@@ -44,8 +44,7 @@ export default function Text1({ config }) {
   //texture = new THREE.VideoTexture(video);
 	//texture.colorSpace = THREE.SRGBColorSpace;
 
-  let geo = new TextGeometry(config.text, { font, size: config.fontSize, height: config.fontDepth, curveSegments: 100, bevelEnabled: false });
-  geo.center();
+  const geo = useMemo(() => new TextGeometry(children, config), [children, config]);  geo.center();
   geo.computeBoundingBox();
   let refUniforms = {
     uTime: { value: 0 },
@@ -76,35 +75,21 @@ export default function Text1({ config }) {
 
 
   const result = (
-    <mesh ref={refMesh} castShadow>
-      <bufferGeometry attach="geometry" geometry={geo} />
+    <mesh ref={refMesh} geometry={geo} rotation={[0, -0.5, 0]}>
       <MeshTransmissionMaterial
         ref={refMaterial}
         attach="material"
-        background={texture}
-        //map={texture}
+        metalness={.75}
         reflectivity={0.5}
         roughness={0}
         transmission={0.6}
         thickness={0.5}
-        color={config.color}
+        color={"#DBE2E9"}
         ior={0.7}
         distortionScale = {1}
           distortion = {1}
           temporalDistortion = {0.4}
       />
-      {/*
-
-      <meshNormalMaterial
-        //onBeforeCompile={onBeforeCompile}
-        ref={refMaterial}
-        attach="material"
-        //map={texture}
-        color={'red'}
-      />
-
-
-      */}
     </mesh>
   );
   return result
