@@ -1,7 +1,7 @@
 // Header.js
 import { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Center,
   View,
@@ -17,6 +17,7 @@ import Text3D from './three/DreiText';
 import HDR from '../static/textures/venice_sunset_1k.hdr';
 
 const Header = () => {
+  const navigate = useNavigate();
   const ref = useRef();
   const nameView = useRef();
   const infoView = useRef();
@@ -55,9 +56,9 @@ const Header = () => {
         <div className='folio'>
           <span>SOFTWARE DEVELOPER <br /> PORTFOLIO / 2024</span>
         </div>
-        <div className='info3' ref={infoView} />
+        <div className='info3' ref={infoView} onClick={() => navigate('/info')}/>
         <div className='name3' ref={nameView} />
-        <div className='work3' ref={workView} />
+        <div className='work3' ref={workView} onClick={() => navigate('/work')}/>
         <div className='avail'>
           <span>AVAILABLE FOR WORK<br /> FROM JANUARY 2024</span>
         </div>
