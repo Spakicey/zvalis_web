@@ -70,7 +70,7 @@ const Header = () => {
                   <a
                     href={mailtoLink}
                     rel="noopener noreferrer"
-                  >CONTACT
+                  >EMAIL
                   </a>
                 </span>
                 <span className="c-link__animated">
@@ -78,7 +78,7 @@ const Header = () => {
                     <a
                       href={mailtoLink}
                       rel="noopener noreferrer"
-                    >CONTACT
+                    >EMAIL
                     </a>
                   </span>
                 </span>
