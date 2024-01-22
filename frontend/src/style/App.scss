@@ -30,7 +30,6 @@ body, #root {
   min-height: 100vh;
   visibility: visible;
   text-align: center;
-  z-index: 2;
 }
 
 .main > * {
@@ -115,43 +114,45 @@ body, #root {
     .contact {
       visibility: visible;
     }
+  }
 
     // Small screens
     @media all and (max-width: 900px) {
-      flex-flow: wrap !important;
-      .name {
-        @include order(1);
-        flex-basis: 50%;
-      }
-      .folio {
-        @include order(2);
-        flex-basis: 50%;
-        visibility: collapse;
-      }
-      .info3 {
-        @include order(3);
-        flex-basis: 20%;
-      }
-      .name3 {
-        @include order(4);
-        flex-basis: 60%;
-        height: 9vh;
-      }
-      .work3 {
-        @include order(5);
-        flex-basis: 20%;
-      }
-      .avail {
-        @include order(6);
-        flex-basis: 50%;
-        visibility: collapse;
-      }
-      .contact {
-        @include order(2);
-        flex-basis: 50%;
+      .container {
+        flex-flow: wrap !important;
+        .name {
+          @include order(1);
+          flex-basis: 50%;
+        }
+        .folio {
+          @include order(2);
+          flex-basis: 50%;
+          visibility: collapse;
+        }
+        .info3 {
+          @include order(3);
+          flex-basis: 20%;
+        }
+        .name3 {
+          @include order(4);
+          flex-basis: 60%;
+          height: 9vh;
+        }
+        .work3 {
+          @include order(5);
+          flex-basis: 20%;
+        }
+        .avail {
+          @include order(6);
+          flex-basis: 50%;
+          visibility: collapse;
+        }
+        .contact {
+          @include order(2);
+          flex-basis: 50%;
+        }
       }
     }
-  }
 }
 
 .hero {

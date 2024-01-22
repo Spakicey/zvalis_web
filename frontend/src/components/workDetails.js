@@ -11,7 +11,7 @@ const Details = () => {
       <section className="container">
         <div className="detail">
           <h1 className="title">{ location.state.name }</h1>
-          <img className="image" src={ imgPartial+ location.state.image } width="100%" alt="ZCV/2K24"/>
+          <img className="image" src={ imgPartial+ location.state.image } alt="ZCV/2K24"/>
           <div className="body">
             <h2>About the project:</h2>
             <p>{ location.state.description }</p>
