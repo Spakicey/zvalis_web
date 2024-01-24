@@ -14,6 +14,17 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+html {
+  min-height: calc(100% + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background-attachment: fixed;
+  background-image: $bg-img;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black; /* fallback color */
+}
+
 body, #root {
   margin: 0;
   width: 100%;
@@ -23,10 +34,6 @@ body, #root {
 }
 
 .main {
-  background-color: black; /* fallback color */
-  background-image: $bg-img;
-  background-position: center;
-  background-size: cover;
   min-height: 100vh;
   visibility: visible;
   text-align: center;
@@ -70,7 +77,10 @@ body, #root {
 
     .left {
       @include flexbox();
+      justify-content: space-evenly;
+      align-items: center;
       .name {
+        margin-right: .5rem;
         .link-style {
           @extend %links;
         }
@@ -122,6 +132,7 @@ body, #root {
         background-color: black;
       }
       .contact {
+        margin-left: .5rem;
         visibility: visible;
       }
     }
@@ -135,28 +146,23 @@ body, #root {
         justify-content: space-around;
         align-items: center;
         .name {
-          //scale: 75%;
           visibility: visible;
-
         }
         .folio {
-          //scale: 75%;
           visibility: visible;
         }
       }
       .center {
         @include order(2);
-        width: 100vw;
+        width: 95vw;
         justify-content: space-around;
         align-items: center;
         .info3 {
           width: 25vw;
-
         }
         .name3 {
           height: 8vh;
           width: 60vw;
-
         }
         .work3 {
           width: 25vw;
@@ -167,17 +173,6 @@ body, #root {
         width: 100vw;
         justify-content: space-around;
         align-items: center;
-
-        .avail {
-          //scale: 75%;
-          visibility: visible;
-        }
-
-        .contact {
-          //scale: 75%;
-          visibility: visible;
-
-        }
       }
     }
   }
@@ -191,8 +186,6 @@ body, #root {
   .container {
     @include flexbox();
     padding: .5rem;
-    height: 80vh;
-    min-height: 100px;
     overflow: auto;
     background-image: $bg2-img;
     background-position: top;
@@ -234,7 +227,7 @@ body, #root {
 
     .project {
       max-height: 60vh;
-      width: 40vh;
+      width: 45vh;
       margin-bottom: 1vh;
       margin-top: .5rem;
       margin-left: 1rem;
@@ -245,7 +238,8 @@ body, #root {
 
         .image {
           aspect-ratio: 4/3;
-          height: 30vh;
+          width: 45vh;
+          object-fit: cover;
           cursor: pointer;
         }
 
@@ -261,7 +255,8 @@ body, #root {
       @include flexbox();
 
       .image {
-        height: 70vh;
+        max-height: 70vh;
+        max-width: 100vw;
       }
       .title {
         @extend %red-on-black-text;
@@ -272,8 +267,8 @@ body, #root {
       .body {
         @extend %red-on-black-text;
         margin: auto;
+        padding-bottom: 1rem;
       }
-
       .git-link {
         @extend %links;
       }
@@ -292,25 +287,20 @@ body, #root {
 
     // Small screens
     @media all and (max-width: 900px) {
-      height: 58.5vh;
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
 
-      .home {
-        visibility: collapse;
-
-        .text {
-
-        }
-      }
-
       .detail {
         flex-direction: column;
+
         .image {
-          aspect-ratio: 4/3;
-          height: 30vh;
+          max-height: inherit;
+          max-width: 100%;
+          height: inherit;
+
         }
+
         .title {
           @extend %red-on-black-text;
           writing-mode: horizontal-tb;
@@ -347,7 +337,6 @@ body, #root {
     }
     .center {
       @include flexbox();
-
     }
     .right {
       @include flexbox();
@@ -370,40 +359,28 @@ body, #root {
         align-items: center;
 
         .clock {
-          //scale: 75%;
           margin-bottom: 1px;
         }
-
       }
+
       .center {
         @include order(1);
         width: 100vw;
         justify-content: space-around;
         align-items: center;
-
-        .socials {
-
-          .c-button {
-
-          }
-        }
-
       }
+
       .right {
         @include order(3);
         width: 100vw;
         justify-content: space-around;
         align-items: center;
-
-        .credit {
-          //scale: 75%;
-        }
       }
     }
   }
 
-    // Small screens
-    @media all and (max-width: 900px) {
-      padding-top: 0px;
-    }
+  // Small screens
+  @media all and (max-width: 900px) {
+    padding-top: 0px;
+  }
 }
