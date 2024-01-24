@@ -1,12 +1,15 @@
 // Home.js
 import { useRef, useEffect, useState } from 'react';
 import Yokoland from '../services/yokoland';
+import { setHeroSize } from '../services/heroSizeService';
 
 const Home = () => {
   const containerRef = useRef(null);
   const [containerDimensions, setContainerDimensions] = useState({ width: 0, height: 0});
 
   useEffect(() => {
+    setHeroSize();
+
     const updateContainerDimensions = () => {
       if (containerRef.current) {
         const width = containerRef.current.offsetWidth;

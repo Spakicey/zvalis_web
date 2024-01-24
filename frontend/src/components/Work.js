@@ -1,7 +1,8 @@
 // Work.js
-//import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import projectData from '../data/projects.json';
+import { setHeroSize } from '../services/heroSizeService';
 //import { getProjects, getPath } from '../services/ProjectService';
 //let img_partial = getPath();
 
@@ -9,6 +10,10 @@ const Work = () => {
   const navigate = useNavigate();
   const imgPartial = '../static/project_images/';
   //const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    setHeroSize();
+  }, []);
 
   /** get projects from backend
    *   useEffect(() => {

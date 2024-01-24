@@ -1,10 +1,16 @@
 // workDetails.js
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { setHeroSize } from '../services/heroSizeService';
 
 const Details = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const imgPartial = '../static/project_images/';
+
+  useEffect(() => {
+    setHeroSize();
+  }, []);
 
   return (
     <div className="hero">

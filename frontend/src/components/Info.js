@@ -1,8 +1,15 @@
+// Info.js
+import { useEffect } from 'react';
+import { setHeroSize } from '../services/heroSizeService';
 import miata1 from '../static/miata1.jpg';
 import scoob1 from '../static/scoob1.jpg';
 import scoob2 from '../static/scoob2.jpg';
 
 const Info = () => {
+
+  useEffect(() => {
+    setHeroSize();
+  }, []);
 
   return (
     <div className='hero'>

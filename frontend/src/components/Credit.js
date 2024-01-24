@@ -1,5 +1,12 @@
+// Credit.js
+import { useEffect } from 'react';
+import { setHeroSize } from '../services/heroSizeService';
 
 const Credit = () => {
+
+  useEffect(() => {
+    setHeroSize();
+  }, []);
 
   return (
     <div className='hero'>
