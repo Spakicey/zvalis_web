@@ -61,6 +61,28 @@ const Footer = () => {
                 <span className="c-link__inner">
                   <span>
                     <a
+                      href="https://www.instagram.com/spakicey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >instagram
+                    </a>
+                  </span>
+                  <span className="c-link__animated">
+                    <a
+                      href="https://www.instagram.com/spakicey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >instagram
+                    </a>
+                  </span>
+                </span>
+              </span>
+            </span>
+            <span className="c-button">
+              <span className="c-link">
+                <span className="c-link__inner">
+                  <span>
+                    <a
                       href="https://www.github.com/spakicey"
                       target="_blank"
                       rel="noopener noreferrer"
