@@ -23,7 +23,7 @@
     <a href="https://github.com/Spakicey/zvalis_web"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="WEB URL">View Site</a>
+    <a href="https://zvalis.net/">View Site</a>
     ·
     <a href="https://github.com/Spakicey/zvalis_web/issues">Report Bug</a>
     ·
@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Website Screenshot][site-screenshot]](https://github.com/Spakicey/zvalis_web)
+[![Website Screenshot][site-screenshot]](https://zvalis.net/)
 
 I want to have my own little corner of the intenet with this website! Since I know how to code, I figured I'd code my website from the ground up, teach myself some new things along the way, and show off a little bit of my personality!
 
@@ -154,7 +154,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Zack Valis - [@Spakicey](https://instagram.com/spakicey) - zackvalis@gmail.com - [LinkedIn](https://linkedin.com/in/zvalis)
+Zack Valis - [Instagram](https://instagram.com/spakicey) - zackvalis@gmail.com - [LinkedIn](https://linkedin.com/in/zvalis)
 
 Project Link: [https://github.com/Spakicey/zvalis_web](https://github.com/Spakicey/zvalis_web)
 
