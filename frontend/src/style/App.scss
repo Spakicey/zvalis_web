@@ -94,7 +94,7 @@ body, #root {
       @include flexbox();
       .info3 {
         @extend %link-invert;
-        background-image: $fire2-img;
+        background-image: $fire-img;
         background-position: bottom;
         background-size: contain;
         background-repeat: no-repeat;
@@ -104,7 +104,7 @@ body, #root {
         cursor: pointer;
       }
       .name3 {
-        background-image: $fire2-img;
+        background-image: $fire-img;
         background-position: bottom;
         background-size: 100%;
         background-size: cover;
@@ -115,7 +115,7 @@ body, #root {
       }
       .work3 {
         @extend %link-invert;
-        background-image: $fire2-img;
+        background-image: $fire-img;
         background-position: bottom;
         background-size: contain;
         background-repeat: no-repeat;

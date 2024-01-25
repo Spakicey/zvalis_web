@@ -27,7 +27,7 @@
     "summary": "Interactive maps",
     "description": "Creating interactive maps displaying tectonic plates and earthquakes locations and magnitudes",
     "technology": "D3, GeoJSON, JavaScript",
-    "image": "EQ_IMG.png",
+    "image": "EQ_IMG.jpg",
     "repository": "https://github.com/Spakicey/mapping-earthquakes",
     "deployment": "",
     "visibility": "visible"
@@ -38,7 +38,7 @@
     "summary": "Interactive dashboard for volunteers' data",
     "description": "This project contains interactive charts for top 10 bacterial species (OTUs), a bubble chart showing bacteria cultures per sample, and a guage chart showing weekly frequency of belly button washes",
     "technology": "JavaScript, D3, Plotly",
-    "image": "bellyButton.png",
+    "image": "bellyButton.jpg",
     "repository": "https://github.com/Spakicey/belly-button-biodiversity",
     "deployment": "https://spakicey.github.io/belly-button-biodiversity/",
     "visibility": "visible"
