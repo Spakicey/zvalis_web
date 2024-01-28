@@ -72,8 +72,7 @@ const Contact = () => {
         <div className='contact'>
           <h1 className='text'>"CONTACT ME"</h1>
           <h3 className='text'>If you would like to contact me about any
-                freelance projects or employment opportunities,
-                please fill out the form below. Thank you!</h3>
+                freelance projects or employment opportunities, please fill out the form below. Thank you!</h3>
           <form className='form' onSubmit={checkEmail}>
             <label className='text'>Name</label>
             <input className='name-area' type="text" name="from_name" id='nameVal'/>
