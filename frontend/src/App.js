@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './style/App.scss';
 import Header from './components/Header';
 import Home from "./components/Home";
+import Contact from './components/Contact';
 import Work from './components/Work';
 import Details from './components/workDetails';
 import Info from './components/Info';
@@ -31,8 +32,9 @@ function App() {
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/info" element={<Info/>} />
           <Route exact path="/work" element={<Work/>} />
-          <Route exact path='/work/:id' element={<Details/>} />
+          <Route exact path="/work/:id" element={<Details/>} />
           <Route exact path="/credit" element={<Credit/>} />
+          <Route exact path="/contact" element={<Contact/>} />
           <Route path='*' element={<Home/>} />
         </Routes>
         <Footer />

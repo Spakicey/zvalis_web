@@ -23,12 +23,6 @@ const Header = () => {
   const infoView = useRef();
   const workView = useRef();
 
-  const email = 'zackvalis@gmail.com';
-  const subject = '<Insert Name> - Coding Inquiry';
-  const body = 'Please let me know who you are and what you have in mind!';
-
-  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
   const { concurrent, /*distributed*/ } = useControls({
     concurrent: { value: true },
     /*distributed: { value: true },*/
@@ -72,19 +66,11 @@ const Header = () => {
               <span className="c-link">
                 <span className="c-link__inner">
                   <span>
-                    <a
-                      href={mailtoLink}
-                      rel="noopener noreferrer"
-                    >CONTACT
-                    </a>
+                    <Link to='/contact'>CONTACT</Link>
                   </span>
                   <span className="c-link__animated">
                     <span>
-                      <a
-                        href={mailtoLink}
-                        rel="noopener noreferrer"
-                      >CONTACT
-                      </a>
+                      <Link to='/contact'>CONTACT</Link>
                     </span>
                   </span>
                 </span>
@@ -92,60 +78,59 @@ const Header = () => {
             </span>
           </div>
         </div>
+        <Leva hidden />
+        <Canvas
+          className='canvas'
+          eventSource={ref}
+          key={concurrent}
+          mode={concurrent ? "concurrent" : "blocking"}
+          shadows
+          camera={{ position: [-3, 0.75, 5], zoom: 1, fov: 30 }}
+          gl={{ preserveDrawingBuffer: true }}
+          >
+          <Suspense fallback={null}>
+            <View index={1} track={nameView}>
+              <Center>
+                <PresentationControls
+                  enabled={true}
+                  rotation={[0,0,0]}
+                  config={{ mass: 2, tension: 500 }}
+                  snap={{ mass: 4, tension: 1500 }}
+                  polar={[-Math.PI / 3, Math.PI / 3]}
+                  azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
+                    <Environment files={HDR} background={false}/>
+                    <Resize scale={8}>
+                      <Text3D>Zack Valis</Text3D>
+                    </Resize>
+                </PresentationControls>
+              </Center>
+            </View>
+            <View index={2} track={infoView}>
+              <Environment files={HDR} background={false}/>
+              <Text3D>Info</Text3D>
+            </View>
+            <View index={3} track={workView}>
+              <Environment files={HDR} background={false}/>
+              <Text3D>Work</Text3D>
+            </View>
+          </Suspense>
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          {/*<CameraPositionLogger event='mousedown' />*/}
+          <Preload all />
+          <OrbitControls
+                enabled={false}
+                autoRotateSpeed={-0.1}
+                zoomSpeed={0.25}
+                minZoom={20}
+                maxZoom={100}
+                enablePan={false}
+                dampingFactor={0.05}
+                minPolarAngle={-Math.PI / 2}
+                maxPolarAngle={(0.99 * Math.PI) / 2}
+              />
+        </Canvas>
       </div>
-
-      <Leva hidden />
-      <Canvas
-        className='canvas'
-        eventSource={ref}
-        key={concurrent}
-        mode={concurrent ? "concurrent" : "blocking"}
-        shadows
-        camera={{ position: [-3, 0.75, 5], zoom: 1, fov: 30 }}
-        gl={{ preserveDrawingBuffer: true }}
-        >
-        <Suspense fallback={null}>
-          <View index={1} track={nameView}>
-            <Center>
-              <PresentationControls
-                enabled={true}
-                rotation={[0,0,0]}
-                config={{ mass: 2, tension: 500 }}
-                snap={{ mass: 4, tension: 1500 }}
-                polar={[-Math.PI / 3, Math.PI / 3]}
-                azimuth={[-Math.PI / 1.4, Math.PI / 2]}>
-                  <Environment files={HDR} background={false}/>
-                  <Resize scale={8}>
-                    <Text3D>Zack Valis</Text3D>
-                  </Resize>
-              </PresentationControls>
-            </Center>
-          </View>
-          <View index={2} track={infoView}>
-            <Environment files={HDR} background={false}/>
-            <Text3D>Info</Text3D>
-          </View>
-          <View index={3} track={workView}>
-            <Environment files={HDR} background={false}/>
-            <Text3D>Work</Text3D>
-          </View>
-        </Suspense>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        {/*<CameraPositionLogger event='mousedown' />*/}
-        <Preload all />
-        <OrbitControls
-              enabled={false}
-              autoRotateSpeed={-0.1}
-              zoomSpeed={0.25}
-              minZoom={20}
-              maxZoom={100}
-              enablePan={false}
-              dampingFactor={0.05}
-              minPolarAngle={-Math.PI / 2}
-              maxPolarAngle={(0.99 * Math.PI) / 2}
-            />
-      </Canvas>
     </header>
   );
 };

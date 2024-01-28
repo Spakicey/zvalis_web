@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.88.13",
     "@react-three/fiber": "^8.15.10",

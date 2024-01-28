@@ -31,12 +31,14 @@ body, #root {
   height: 100%;
   padding: 0;
   overflow: hidden;
+  position: fixed;
 }
 
 .main {
   min-height: 100vh;
   visibility: visible;
   text-align: center;
+  //position: fixed;
 }
 
 .main > * {
@@ -46,34 +48,32 @@ body, #root {
 
 .header {
   padding-bottom: 0;
-  .canvas {
-    position: fixed !important;
-    top: 0px;
-    left: 0px;
-    width: 100vw !important;
-    height: 100vh !important;
-
-    Canvas {
-      opacity: 0;
-      touch-action: auto;
-      animation: fade-in 1s ease .5s forwards;
-
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    }
-  }
 
   .container {
     @include flexbox();
     justify-content: space-around;
     align-items: center;
     color: $col-ruby;
+
+    .canvas {
+      position: fixed !important;
+      max-height: 74px;
+
+      Canvas {
+        opacity: 0;
+        touch-action: auto;
+        animation: fade-in 1s ease .5s forwards;
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+    }
 
     .left {
       @include flexbox();
@@ -285,11 +285,62 @@ body, #root {
       }
     }
 
+    .contact {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      z-index: 11;
+      .form {
+        @include flexbox();
+        flex-direction: column;
+      }
+
+      .text {
+        @extend %red-on-black-text;
+      }
+
+      .name-area {
+        color: $col-ruby;
+        background-color: $col-bone;
+        border-color: black;
+      }
+
+      .email-area {
+        color: $col-ruby;
+        background-color: $col-bone;
+        border-color: black;
+      }
+
+      .message-area {
+        height: 30vh;
+        color: $col-ruby;
+        background-color: $col-bone;
+        border-color: black;
+      }
+
+      .submit-button {
+        background-color: black;
+        color: $col-ruby;
+        border-color: $col-ruby;
+        cursor: pointer;
+      }
+    }
+
     // Small screens
     @media all and (max-width: 900px) {
       justify-content: normal;
       flex-direction: column;
       flex-wrap: nowrap;
+      overflow-x: hidden;
+
+      .project {
+        .card {
+          .image {
+            visibility: visible;
+          }
+        }
+      }
 
       .detail {
         flex-direction: column;
@@ -315,6 +366,15 @@ body, #root {
           max-height: 200px;
           max-width: 300px;
           float: right;
+        }
+      }
+
+      .contact {
+        font-size: 18px;
+        select,
+        textarea,
+        input {
+          font-size: 20px;
         }
       }
     }
